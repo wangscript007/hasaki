@@ -33,6 +33,9 @@ namespace hasaki
         };
 
     } // namespace  base
+
+    typedef base::noncopyable noncopyable;
+
 } // namespace hasaki
 
 #endif
