@@ -3,7 +3,6 @@
 
 #include <cstdint>
 #include <string>
-#include "boost/noncopyable.hpp"
 #include "boost/operators.hpp"
 
 namespace hasaki

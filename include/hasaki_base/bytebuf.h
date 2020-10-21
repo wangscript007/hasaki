@@ -14,9 +14,9 @@ public:
     ByteBuf(ByteBuf &&o);
 
 private:
-    std::vector<char> buffer_;
-    std::size_t readIndex_;
-    std::size_t writeIndex_;
+    std::vector<char> buffer__;
+    std::size_t readIndex__;
+    std::size_t writeIndex__;
 };
 
 } /* end of namespace base */
