@@ -1,6 +1,12 @@
 #include "hasaki_base/timestamp.h"
 
-std::string hasaki::base::Timestamp::ToString() const 
+namespace hasaki
 {
-    
-}
+    namespace base
+    {
+        std::string Timestamp::ToString() const
+        {
+
+        }
+    } // namespace base
+} // namespace hasaki
