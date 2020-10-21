@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/kuiper/MyCodes/hasaki/bytebuf.cpp
+
+/Users/kuiper/MyCodes/hasaki/logger.cpp
+
+/Users/kuiper/MyCodes/hasaki/timestamp.cpp
+
