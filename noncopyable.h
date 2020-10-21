@@ -27,7 +27,7 @@ namespace hasaki
             noncopyable(const noncopyable &);
             noncopyable &operator=(const noncopyable &);
 #else
-            noncopyable() = delete;
+            noncopyable(const noncopyable &) = delete;
             noncopyable &operator=(const noncopyable &) = delete;
 #endif
         };
