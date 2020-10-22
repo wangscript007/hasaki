@@ -2,18 +2,16 @@
 #define __HASAKI_TIMESTAMP_H__
 
 #include <cstdint>
-#include <string>
 #include <ctime>
+#include <string>
 
 namespace hasaki {
-namespace base{
+namespace base {
 
 // A wrapper of the msSinceEpoch.
 
-class Timestamp
-{
-
-    public:
+class Timestamp {
+public:
     ///
     ///
     Timestamp() : msSinceEpoch__(0) {}
@@ -34,11 +32,11 @@ class Timestamp
     ///
     static Timestamp FromUnixTime(time_t unixTime);
 
-    private:
+private:
     uint64_t msSinceEpoch__;
 };
 
-} // namespace base
-} // namespace hasaki
+}  // namespace base
+}  // namespace hasaki
 
 #endif

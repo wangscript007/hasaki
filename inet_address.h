@@ -2,25 +2,15 @@
 #define __HASAKI_INET_ADDRESS_H__
 
 namespace hasaki {
-namespace net
-{
+namespace net {
 
-    
-class InetAddress {
-
-};
+class InetAddress {};
 
 // For IpV4
-class Inet4Address {
-
-};
+class Inet4Address {};
 
 // For IpV6
-class Inet6Address {
-
-};
-
-
+class Inet6Address {};
 
 } // namespace net
 } // namespace hasaki

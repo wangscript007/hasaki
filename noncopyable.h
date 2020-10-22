@@ -4,37 +4,33 @@
 ///
 /// hasaki::base::noncopyable likes boost::noncopyable.
 ///
-namespace hasaki
-{
-    namespace base
-    {
-        class noncopyable
-        {
-        public:
+namespace hasaki {
+namespace base {
+
+class noncopyable {
+public:
 // constructor and destrutor
 #if __cplusplus < 201103L
-            noncopyable()
-            {
-            }
-            ~noncopyable() {}
+    noncopyable() {}
+    ~noncopyable() {}
 #else
-            constexpr noncopyable() = default;
-            ~noncopyable() = default;
+    constexpr noncopyable() = default;
+    ~noncopyable() = default;
 #endif
 
 // disable copy and assign
 #if __cplusplus < 201103L
-        private:
-            noncopyable(const noncopyable &);
-            noncopyable &operator=(const noncopyable &);
+private:
+    noncopyable(const noncopyable &);
+    noncopyable &operator=(const noncopyable &);
 #else
-            noncopyable(const noncopyable &) = delete;
-            noncopyable &operator=(const noncopyable &) = delete;
+    noncopyable(const noncopyable &) = delete;
+    noncopyable &operator=(const noncopyable &) = delete;
 #endif
-        };
+};
 
-    } // namespace  base
-    typedef base::noncopyable noncopyable;
-} // namespace hasaki
+}  // namespace  base
+typedef base::noncopyable noncopyable;
+}  // namespace hasaki
 
 #endif
