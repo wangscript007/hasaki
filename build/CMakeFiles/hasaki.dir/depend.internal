@@ -6,6 +6,7 @@ CMakeFiles/hasaki.dir/bytebuf.o
 CMakeFiles/hasaki.dir/main.o
  /Users/kuiper/MyCodes/hasaki/logger.h
  /Users/kuiper/MyCodes/hasaki/main.cpp
+ /Users/kuiper/MyCodes/hasaki/noncopyable.h
  /usr/local/include/spdlog/common-inl.h
  /usr/local/include/spdlog/common.h
  /usr/local/include/spdlog/details/backtracer-inl.h

@@ -13,12 +13,16 @@ spdlog/sinks/stdout_color_sinks.h
 /Users/kuiper/MyCodes/hasaki/spdlog/sinks/stdout_color_sinks.h
 spdlog/sinks/rotating_file_sink.h
 /Users/kuiper/MyCodes/hasaki/spdlog/sinks/rotating_file_sink.h
+noncopyable.h
+/Users/kuiper/MyCodes/hasaki/noncopyable.h
 cassert
 -
 
 /Users/kuiper/MyCodes/hasaki/main.cpp
 logger.h
 /Users/kuiper/MyCodes/hasaki/logger.h
+
+/Users/kuiper/MyCodes/hasaki/noncopyable.h
 
 /usr/local/include/spdlog/common-inl.h
 spdlog/common.h

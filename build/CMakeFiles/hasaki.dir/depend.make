@@ -5,6 +5,7 @@ CMakeFiles/hasaki.dir/bytebuf.o: ../bytebuf.cpp
 
 CMakeFiles/hasaki.dir/main.o: ../logger.h
 CMakeFiles/hasaki.dir/main.o: ../main.cpp
+CMakeFiles/hasaki.dir/main.o: ../noncopyable.h
 CMakeFiles/hasaki.dir/main.o: /usr/local/include/spdlog/common-inl.h
 CMakeFiles/hasaki.dir/main.o: /usr/local/include/spdlog/common.h
 CMakeFiles/hasaki.dir/main.o: /usr/local/include/spdlog/details/backtracer-inl.h

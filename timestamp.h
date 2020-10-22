@@ -5,39 +5,40 @@
 #include <string>
 #include <ctime>
 
-namespace hasaki
+namespace hasaki {
+namespace base{
+
+// A wrapper of the msSinceEpoch.
+
+class Timestamp
 {
-    namespace base
-    {
-        class Timestamp
-        {
 
-        public:
-            ///
-            ///
-            Timestamp() : msSinceEpoch__(0) {}
+    public:
+    ///
+    ///
+    Timestamp() : msSinceEpoch__(0) {}
 
-            ///
-            ///
-            explicit Timestamp(uint64_t msSinceEpoch) : msSinceEpoch__(msSinceEpoch) {}
+    ///
+    ///
+    explicit Timestamp(uint64_t msSinceEpoch) : msSinceEpoch__(msSinceEpoch) {}
 
-            ///
-            ///
-            std::string ToString();
+    ///
+    ///
+    std::string ToString() const;
 
-            ///
-            ///
-            static Timestamp Now();
+    ///
+    ///
+    static Timestamp Now();
 
-            ///
-            ///
-            static Timestamp FromUnixTime();
+    ///
+    ///
+    static Timestamp FromUnixTime(time_t unixTime);
 
-        private:
-            uint64_t msSinceEpoch__;
-        };
+    private:
+    uint64_t msSinceEpoch__;
+};
 
-    } // namespace base
+} // namespace base
 } // namespace hasaki
 
 #endif

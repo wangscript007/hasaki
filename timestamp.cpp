@@ -1,23 +1,23 @@
 #include "timestamp.h"
 
-namespace hasaki
+namespace hasaki {
+namespace base {
+
+std::string Timestamp::ToString() const
 {
-    namespace base
-    {
-        std::string Timestamp::ToString()
-        {
-            return "";
-        }
+    
+    return "";
+}
 
-        Timestamp Timestamp::Now()
-        {
-            return Timestamp(0);
-        }
+Timestamp Timestamp::Now()
+{
+    return Timestamp(0);
+}
 
-        Timestamp Timestamp::FromUnixTime()
-        {
-            return Timestamp(0);
-        }
+Timestamp Timestamp::FromUnixTime(time_t unixTime)
+{
+    return Timestamp(0);
+}
 
-    } // namespace base
+} // namespace base
 } // namespace hasaki

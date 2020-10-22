@@ -10,6 +10,7 @@ namespace hasaki
     {
         class noncopyable
         {
+        public:
 // constructor and destrutor
 #if __cplusplus < 201103L
             noncopyable()
@@ -33,9 +34,7 @@ namespace hasaki
         };
 
     } // namespace  base
-
     typedef base::noncopyable noncopyable;
-
 } // namespace hasaki
 
 #endif
