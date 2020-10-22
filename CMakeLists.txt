@@ -11,7 +11,6 @@ endif()
 # for macOSx warning
 set(CMAKE_MACOSX_RPATH 1)
 
-
 # set the dynamic libs path, when hasaki build .
 set(LIBRARY_OUTPUT_DIRECTORY, ${PROJECT_SOURCE_DIR}/lib)
 

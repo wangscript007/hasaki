@@ -158,19 +158,19 @@ bytebuf.s:
 .PHONY : bytebuf.s
 
 # target to build an object file
-logger.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/logger.o
-.PHONY : logger.o
+main.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/main.o
+.PHONY : main.o
 
 # target to preprocess a source file
-logger.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/logger.i
-.PHONY : logger.i
+main.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/main.i
+.PHONY : main.i
 
 # target to generate assembly for a file
-logger.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/logger.s
-.PHONY : logger.s
+main.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/main.s
+.PHONY : main.s
 
 # target to build an object file
 timestamp.o:
@@ -199,9 +199,9 @@ help:
 	@echo "... bytebuf.o"
 	@echo "... bytebuf.i"
 	@echo "... bytebuf.s"
-	@echo "... logger.o"
-	@echo "... logger.i"
-	@echo "... logger.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... timestamp.o"
 	@echo "... timestamp.i"
 	@echo "... timestamp.s"

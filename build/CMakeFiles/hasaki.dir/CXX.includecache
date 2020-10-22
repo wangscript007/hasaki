@@ -8,7 +8,17 @@
 
 /Users/kuiper/MyCodes/hasaki/bytebuf.cpp
 
-/Users/kuiper/MyCodes/hasaki/logger.cpp
+/Users/kuiper/MyCodes/hasaki/logger.h
+spdlog/spdlog.h
+/Users/kuiper/MyCodes/hasaki/spdlog/spdlog.h
+spdlog/sinks/stdout_color_sinks.h
+/Users/kuiper/MyCodes/hasaki/spdlog/sinks/stdout_color_sinks.h
+stdarg.h
+-
+
+/Users/kuiper/MyCodes/hasaki/main.cpp
+logger.h
+/Users/kuiper/MyCodes/hasaki/logger.h
 
 /Users/kuiper/MyCodes/hasaki/timestamp.cpp
 

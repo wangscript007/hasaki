@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/kuiper/MyCodes/hasaki/bytebuf.cpp" "/Users/kuiper/MyCodes/hasaki/build/CMakeFiles/hasaki.dir/bytebuf.o"
-  "/Users/kuiper/MyCodes/hasaki/logger.cpp" "/Users/kuiper/MyCodes/hasaki/build/CMakeFiles/hasaki.dir/logger.o"
+  "/Users/kuiper/MyCodes/hasaki/main.cpp" "/Users/kuiper/MyCodes/hasaki/build/CMakeFiles/hasaki.dir/main.o"
   "/Users/kuiper/MyCodes/hasaki/timestamp.cpp" "/Users/kuiper/MyCodes/hasaki/build/CMakeFiles/hasaki.dir/timestamp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")

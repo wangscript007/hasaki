@@ -3,7 +3,8 @@
 
 CMakeFiles/hasaki.dir/bytebuf.o
  /Users/kuiper/MyCodes/hasaki/bytebuf.cpp
-CMakeFiles/hasaki.dir/logger.o
- /Users/kuiper/MyCodes/hasaki/logger.cpp
+CMakeFiles/hasaki.dir/main.o
+ /Users/kuiper/MyCodes/hasaki/logger.h
+ /Users/kuiper/MyCodes/hasaki/main.cpp
 CMakeFiles/hasaki.dir/timestamp.o
  /Users/kuiper/MyCodes/hasaki/timestamp.cpp

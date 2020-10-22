@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/hasaki.dir/bytebuf.o"
-  "CMakeFiles/hasaki.dir/logger.o"
+  "CMakeFiles/hasaki.dir/main.o"
   "CMakeFiles/hasaki.dir/timestamp.o"
   "libhasaki.dylib"
   "libhasaki.pdb"
