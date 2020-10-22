@@ -3,6 +3,7 @@
 
 #include <cstdint>
 #include <string>
+#include <ctime>
 
 namespace hasaki
 {

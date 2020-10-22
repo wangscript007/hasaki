@@ -23,3 +23,4 @@ aux_source_directory(. SRC_LIST)
 # compile dynamic lib
 add_library(hasaki SHARED ${SRC_LIST})
 
+include_directories("/usr/local/include")
