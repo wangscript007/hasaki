@@ -4,7 +4,7 @@
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 
-#include <stdarg.h>
+#include <cassert>
 
 class ConsoleLogger {
 public:
@@ -18,6 +18,7 @@ public:
 private:
     ConsoleLogger() {
         logger__ = spdlog::stdout_color_mt("CONSOLE");
+        assert(logger__);
     }
     ConsoleLogger(const ConsoleLogger&) = delete;
     ConsoleLogger& operator=(const ConsoleLogger&) = delete;
