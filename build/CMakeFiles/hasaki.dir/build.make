@@ -76,60 +76,120 @@ include CMakeFiles/hasaki.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/hasaki.dir/flags.make
 
-CMakeFiles/hasaki.dir/bytebuf.o: CMakeFiles/hasaki.dir/flags.make
-CMakeFiles/hasaki.dir/bytebuf.o: ../bytebuf.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/hasaki.dir/bytebuf.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hasaki.dir/bytebuf.o -c /Users/kuiper/MyCodes/hasaki/bytebuf.cpp
+CMakeFiles/hasaki.dir/acceptor.o: CMakeFiles/hasaki.dir/flags.make
+CMakeFiles/hasaki.dir/acceptor.o: ../acceptor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/hasaki.dir/acceptor.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hasaki.dir/acceptor.o -c /Users/kuiper/MyCodes/hasaki/acceptor.cpp
 
-CMakeFiles/hasaki.dir/bytebuf.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hasaki.dir/bytebuf.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/hasaki/bytebuf.cpp > CMakeFiles/hasaki.dir/bytebuf.i
+CMakeFiles/hasaki.dir/acceptor.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hasaki.dir/acceptor.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/hasaki/acceptor.cpp > CMakeFiles/hasaki.dir/acceptor.i
 
-CMakeFiles/hasaki.dir/bytebuf.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hasaki.dir/bytebuf.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/hasaki/bytebuf.cpp -o CMakeFiles/hasaki.dir/bytebuf.s
+CMakeFiles/hasaki.dir/acceptor.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hasaki.dir/acceptor.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/hasaki/acceptor.cpp -o CMakeFiles/hasaki.dir/acceptor.s
+
+CMakeFiles/hasaki.dir/byte_buffer.o: CMakeFiles/hasaki.dir/flags.make
+CMakeFiles/hasaki.dir/byte_buffer.o: ../byte_buffer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/hasaki.dir/byte_buffer.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hasaki.dir/byte_buffer.o -c /Users/kuiper/MyCodes/hasaki/byte_buffer.cpp
+
+CMakeFiles/hasaki.dir/byte_buffer.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hasaki.dir/byte_buffer.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/hasaki/byte_buffer.cpp > CMakeFiles/hasaki.dir/byte_buffer.i
+
+CMakeFiles/hasaki.dir/byte_buffer.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hasaki.dir/byte_buffer.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/hasaki/byte_buffer.cpp -o CMakeFiles/hasaki.dir/byte_buffer.s
+
+CMakeFiles/hasaki.dir/event_loop.o: CMakeFiles/hasaki.dir/flags.make
+CMakeFiles/hasaki.dir/event_loop.o: ../event_loop.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/hasaki.dir/event_loop.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hasaki.dir/event_loop.o -c /Users/kuiper/MyCodes/hasaki/event_loop.cpp
+
+CMakeFiles/hasaki.dir/event_loop.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hasaki.dir/event_loop.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/hasaki/event_loop.cpp > CMakeFiles/hasaki.dir/event_loop.i
+
+CMakeFiles/hasaki.dir/event_loop.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hasaki.dir/event_loop.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/hasaki/event_loop.cpp -o CMakeFiles/hasaki.dir/event_loop.s
+
+CMakeFiles/hasaki.dir/inet_address.o: CMakeFiles/hasaki.dir/flags.make
+CMakeFiles/hasaki.dir/inet_address.o: ../inet_address.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/hasaki.dir/inet_address.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hasaki.dir/inet_address.o -c /Users/kuiper/MyCodes/hasaki/inet_address.cpp
+
+CMakeFiles/hasaki.dir/inet_address.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hasaki.dir/inet_address.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/hasaki/inet_address.cpp > CMakeFiles/hasaki.dir/inet_address.i
+
+CMakeFiles/hasaki.dir/inet_address.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hasaki.dir/inet_address.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/hasaki/inet_address.cpp -o CMakeFiles/hasaki.dir/inet_address.s
 
 CMakeFiles/hasaki.dir/main.o: CMakeFiles/hasaki.dir/flags.make
 CMakeFiles/hasaki.dir/main.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/hasaki.dir/main.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hasaki.dir/main.o -c /Users/kuiper/MyCodes/hasaki/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/hasaki.dir/main.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hasaki.dir/main.o -c /Users/kuiper/MyCodes/hasaki/main.cpp
 
 CMakeFiles/hasaki.dir/main.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hasaki.dir/main.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/hasaki/main.cpp > CMakeFiles/hasaki.dir/main.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/hasaki/main.cpp > CMakeFiles/hasaki.dir/main.i
 
 CMakeFiles/hasaki.dir/main.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hasaki.dir/main.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/hasaki/main.cpp -o CMakeFiles/hasaki.dir/main.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/hasaki/main.cpp -o CMakeFiles/hasaki.dir/main.s
+
+CMakeFiles/hasaki.dir/socket_channel.o: CMakeFiles/hasaki.dir/flags.make
+CMakeFiles/hasaki.dir/socket_channel.o: ../socket_channel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/hasaki.dir/socket_channel.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hasaki.dir/socket_channel.o -c /Users/kuiper/MyCodes/hasaki/socket_channel.cpp
+
+CMakeFiles/hasaki.dir/socket_channel.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hasaki.dir/socket_channel.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/hasaki/socket_channel.cpp > CMakeFiles/hasaki.dir/socket_channel.i
+
+CMakeFiles/hasaki.dir/socket_channel.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hasaki.dir/socket_channel.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/hasaki/socket_channel.cpp -o CMakeFiles/hasaki.dir/socket_channel.s
 
 CMakeFiles/hasaki.dir/timestamp.o: CMakeFiles/hasaki.dir/flags.make
 CMakeFiles/hasaki.dir/timestamp.o: ../timestamp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/hasaki.dir/timestamp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hasaki.dir/timestamp.o -c /Users/kuiper/MyCodes/hasaki/timestamp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/hasaki.dir/timestamp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hasaki.dir/timestamp.o -c /Users/kuiper/MyCodes/hasaki/timestamp.cpp
 
 CMakeFiles/hasaki.dir/timestamp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hasaki.dir/timestamp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/hasaki/timestamp.cpp > CMakeFiles/hasaki.dir/timestamp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/hasaki/timestamp.cpp > CMakeFiles/hasaki.dir/timestamp.i
 
 CMakeFiles/hasaki.dir/timestamp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hasaki.dir/timestamp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/hasaki/timestamp.cpp -o CMakeFiles/hasaki.dir/timestamp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/hasaki/timestamp.cpp -o CMakeFiles/hasaki.dir/timestamp.s
 
 # Object files for target hasaki
 hasaki_OBJECTS = \
-"CMakeFiles/hasaki.dir/bytebuf.o" \
+"CMakeFiles/hasaki.dir/acceptor.o" \
+"CMakeFiles/hasaki.dir/byte_buffer.o" \
+"CMakeFiles/hasaki.dir/event_loop.o" \
+"CMakeFiles/hasaki.dir/inet_address.o" \
 "CMakeFiles/hasaki.dir/main.o" \
+"CMakeFiles/hasaki.dir/socket_channel.o" \
 "CMakeFiles/hasaki.dir/timestamp.o"
 
 # External object files for target hasaki
 hasaki_EXTERNAL_OBJECTS =
 
-libhasaki.dylib: CMakeFiles/hasaki.dir/bytebuf.o
+libhasaki.dylib: CMakeFiles/hasaki.dir/acceptor.o
+libhasaki.dylib: CMakeFiles/hasaki.dir/byte_buffer.o
+libhasaki.dylib: CMakeFiles/hasaki.dir/event_loop.o
+libhasaki.dylib: CMakeFiles/hasaki.dir/inet_address.o
 libhasaki.dylib: CMakeFiles/hasaki.dir/main.o
+libhasaki.dylib: CMakeFiles/hasaki.dir/socket_channel.o
 libhasaki.dylib: CMakeFiles/hasaki.dir/timestamp.o
 libhasaki.dylib: CMakeFiles/hasaki.dir/build.make
 libhasaki.dylib: CMakeFiles/hasaki.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library libhasaki.dylib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX shared library libhasaki.dylib"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hasaki.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

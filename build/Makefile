@@ -143,19 +143,64 @@ hasaki/fast:
 .PHONY : hasaki/fast
 
 # target to build an object file
-bytebuf.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/bytebuf.o
-.PHONY : bytebuf.o
+acceptor.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/acceptor.o
+.PHONY : acceptor.o
 
 # target to preprocess a source file
-bytebuf.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/bytebuf.i
-.PHONY : bytebuf.i
+acceptor.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/acceptor.i
+.PHONY : acceptor.i
 
 # target to generate assembly for a file
-bytebuf.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/bytebuf.s
-.PHONY : bytebuf.s
+acceptor.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/acceptor.s
+.PHONY : acceptor.s
+
+# target to build an object file
+byte_buffer.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/byte_buffer.o
+.PHONY : byte_buffer.o
+
+# target to preprocess a source file
+byte_buffer.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/byte_buffer.i
+.PHONY : byte_buffer.i
+
+# target to generate assembly for a file
+byte_buffer.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/byte_buffer.s
+.PHONY : byte_buffer.s
+
+# target to build an object file
+event_loop.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/event_loop.o
+.PHONY : event_loop.o
+
+# target to preprocess a source file
+event_loop.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/event_loop.i
+.PHONY : event_loop.i
+
+# target to generate assembly for a file
+event_loop.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/event_loop.s
+.PHONY : event_loop.s
+
+# target to build an object file
+inet_address.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/inet_address.o
+.PHONY : inet_address.o
+
+# target to preprocess a source file
+inet_address.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/inet_address.i
+.PHONY : inet_address.i
+
+# target to generate assembly for a file
+inet_address.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/inet_address.s
+.PHONY : inet_address.s
 
 # target to build an object file
 main.o:
@@ -171,6 +216,21 @@ main.i:
 main.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/main.s
 .PHONY : main.s
+
+# target to build an object file
+socket_channel.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/socket_channel.o
+.PHONY : socket_channel.o
+
+# target to preprocess a source file
+socket_channel.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/socket_channel.i
+.PHONY : socket_channel.i
+
+# target to generate assembly for a file
+socket_channel.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/socket_channel.s
+.PHONY : socket_channel.s
 
 # target to build an object file
 timestamp.o:
@@ -196,12 +256,24 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... hasaki"
-	@echo "... bytebuf.o"
-	@echo "... bytebuf.i"
-	@echo "... bytebuf.s"
+	@echo "... acceptor.o"
+	@echo "... acceptor.i"
+	@echo "... acceptor.s"
+	@echo "... byte_buffer.o"
+	@echo "... byte_buffer.i"
+	@echo "... byte_buffer.s"
+	@echo "... event_loop.o"
+	@echo "... event_loop.i"
+	@echo "... event_loop.s"
+	@echo "... inet_address.o"
+	@echo "... inet_address.i"
+	@echo "... inet_address.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... socket_channel.o"
+	@echo "... socket_channel.i"
+	@echo "... socket_channel.s"
 	@echo "... timestamp.o"
 	@echo "... timestamp.i"
 	@echo "... timestamp.s"

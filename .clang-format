@@ -1,4 +1,6 @@
-BasedOnStyle: Google
+Language: Cpp
+BasedOnStyle: Microsoft
+Standard: Cpp11
 UseTab: Never
 IndentWidth: 4
 TabWidth: 4
@@ -7,3 +9,4 @@ AllowShortIfStatementsOnASingleLine: false
 IndentCaseLabels: false
 AccessModifierOffset: -4
 ColumnLimit: 88
+ReflowComments:	true
