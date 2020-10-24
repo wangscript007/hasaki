@@ -1,38 +1,43 @@
 #ifndef __HASAKI_INET_ADDRESS_H__
 #define __HASAKI_INET_ADDRESS_H__
 
-#include <cstring>
 #include <netinet/in.h>
+
+#include <cstring>
 
 namespace hasaki {
 namespace net {
 
 // Generic InetAddress.
-class InetAddress {};
+class InetAddress {
+public:
+    InetAddress() {}
+
+    virtual ~InetAddress() {}
+
+    virtual sa_family_t GetAddressFamily() const = 0;
+};
 
 // InetAdress for IPV4
 class Inet4Address : public InetAddress {
 public:
-    Inet4Address() {
-        sa_family_t ipv4Val = AF_INET;
-        memcpy(&sockAddr__.sin_family, &ipv4Val, sizeof(sa_family_t));
-    }
+    Inet4Address() { sockAddrIpv4__.sin_family = AF_INET; }
+
+    sa_family_t GetAddressFamily() const override { return AF_INET; };
 
 private:
-    struct sockaddr_in sockAddr__;
+    struct sockaddr_in sockAddrIpv4__;
 };
 
 // InetAddress for IPV6
-class Inet6Address {
-
+class Inet6Address : public InetAddress {
 public:
-    Inet6Address() {
-        sa_family_t ipv6Val = AF_INET6;
-        memcpy(&sockAddr__.sin_family, &ipv6Val, sizeof(sa_family_t));
-    }
+    Inet6Address() { sockAddrIpv6__.sin6_family = AF_INET6; }
+
+    sa_family_t GetAddressFamily() const override { return AF_INET6; };
 
 private:
-    struct sockaddr_in sockAddr__;
+    struct sockaddr_in6 sockAddrIpv6__;
 };
 
 } // namespace net

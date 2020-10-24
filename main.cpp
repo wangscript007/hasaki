@@ -1,21 +1,19 @@
-#include "logger.h"
-#include "timestamp.h"
 #include <iostream>
 #include <memory>
 #include <string>
 #include <vector>
 
+#include "inet_address.h"
+#include "logger.h"
+#include "timestamp.h"
+
 // clang++ main.cpp -std=c++11
 
 class A {
 public:
-    A() {
-        HASAKI_INFO("A() wall called...");
-    }
+    A() { HASAKI_INFO("A() wall called..."); }
 
-    A(const A &r) {
-        HASAKI_INFO("A(const A&) wall called...");
-    }
+    A(const A &r) { HASAKI_INFO("A(const A&) wall called..."); }
 
     A &operator=(const A &r) {
         HASAKI_INFO("A& operator=(const A &r) wall called...");
@@ -25,13 +23,9 @@ public:
 
 class B {
 public:
-    B() {
-        HASAKI_INFO("B() wall called...");
-    }
+    B() { HASAKI_INFO("B() wall called..."); }
 
-    B(const B &r) : a__(r.a__) {
-        HASAKI_INFO("B(const B&) wall called...");
-    }
+    B(const B &r) : a__(r.a__) { HASAKI_INFO("B(const B&) wall called..."); }
 
     // B &operator=(const B &r) {
     //     HASAKI_INFO("B& operator=(const B&) wall called...");
@@ -62,6 +56,8 @@ static std::string SQL_FORMAT =
     "ON DUPLICATE KEY UPDATE expire_time = DATE_ADD( expire_time, INTERVAL %d DAY );\n";
 
 int main(int argc, char **args) {
+    hasaki::net::InetAddress ineAddress;
+
     int days = 10;
     const char *tagName = std::string("sp180584").c_str();
     std::vector<long> uids__ = {45084387, 1000409587, 18826590, 24967602,  39597782,
