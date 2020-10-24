@@ -7,7 +7,6 @@ namespace hasaki {
 namespace base {
 
 // ByteBuffer is a not thread-safe buffer with little-endian.
-//
 class ByteBuffer {
 public:
     ByteBuffer() : readIndex__(0), writeIndex__(0) {
@@ -21,8 +20,6 @@ public:
 
     void WriteInt64(int64_t x);
 
-    void Write(void *src, std::size_t writelen);
-
     int8_t ReadInt8();
 
     int16_t ReadInt16();
@@ -32,6 +29,8 @@ public:
     int64_t ReadInt64();
 
     void Read(void *dst, std::size_t readlen);
+
+    void Write(void *src, std::size_t writelen);
 
     std::size_t CapacityOfBuffer() const;
 

@@ -36,13 +36,6 @@ void ByteBuffer::WriteInt64(int64_t x) {
     writeIndex__ += sizeof(int64_t);
 }
 
-void ByteBuffer::Write(void *src, std::size_t writelen) {
-    for (size_t i = 0; i < writelen; i++) {
-        buf__.push_back(*((char *)src + i));
-    }
-    writeIndex__ += writelen;
-}
-
 int8_t ByteBuffer::ReadInt8() {
     if (writeIndex__ - readIndex__ < sizeof(int8_t)) {
 #ifdef HASAKI_NO_EXCEPTIONS
@@ -108,6 +101,20 @@ int64_t ByteBuffer::ReadInt64() {
 }
 
 void ByteBuffer::Read(void *dst, std::size_t readlen) {
+    if (writeIndex__ - readIndex__ < readlen) {
+#ifdef HASAKI_NO_EXCEPTIONS
+        HASAKI_PANIC("ByteBuffer have no  bits to read!");
+#else
+        HASAKI_THROW(std::out_of_range("ByteBuffer have no 64 bits to read!"));
+#endif
+    }
+}
+
+void ByteBuffer::Write(void *src, std::size_t writelen) {
+    for (size_t i = 0; i < writelen; i++) {
+        buf__.push_back(*((char *)src + i));
+    }
+    writeIndex__ += writelen;
 }
 
 std::size_t ByteBuffer::ReadableBytes() const {
