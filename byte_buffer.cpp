@@ -107,10 +107,29 @@ int64_t ByteBuffer::ReadInt64() {
     return value;
 }
 
-void ByteBuffer::Read(void *dst, std::size_t readlen) {}
+void ByteBuffer::Read(void *dst, std::size_t readlen) {
+}
 
-std::size_t ByteBuffer::ReadableBytes() const { return (writeIndex__ - readIndex__); }
+std::size_t ByteBuffer::ReadableBytes() const {
+    assert(readIndex__ <= writeIndex__);
+    return (writeIndex__ - readIndex__);
+}
 
-}  // namespace base
+void ByteBuffer::CleanAndShrink() {
+    std::vector<char> stackObj__;
+    stackObj__.swap(this->buf__);
+    this->readIndex__ = 0;
+    this->writeIndex__ = 0;
+}
 
-}  // namespace hasaki
+std::size_t ByteBuffer::CapacityOfBuffer() const {
+    return buf__.capacity();
+}
+
+std::size_t ByteBuffer::SizeOfBuffer() const {
+    return buf__.size();
+}
+
+} // namespace base
+
+} // namespace hasaki

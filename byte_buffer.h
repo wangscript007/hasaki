@@ -33,7 +33,13 @@ public:
 
     void Read(void *dst, std::size_t readlen);
 
+    std::size_t CapacityOfBuffer() const;
+
+    std::size_t SizeOfBuffer() const;
+
     std::size_t ReadableBytes() const;
+
+    void CleanAndShrink();
 
 private:
     std::vector<char> buf__;

@@ -12,9 +12,13 @@
 
 class A {
 public:
-    A() { HASAKI_INFO("A() wall called..."); }
+    A() {
+        HASAKI_INFO("A() wall called...");
+    }
 
-    A(const A &r) { HASAKI_INFO("A(const A&) wall called..."); }
+    A(const A &r) {
+        HASAKI_INFO("A(const A&) wall called...");
+    }
 
     A &operator=(const A &r) {
         HASAKI_INFO("A& operator=(const A &r) wall called...");
@@ -24,9 +28,13 @@ public:
 
 class B {
 public:
-    B() { HASAKI_INFO("B() wall called..."); }
+    B() {
+        HASAKI_INFO("B() wall called...");
+    }
 
-    B(const B &r) : a__(r.a__) { HASAKI_INFO("B(const B&) wall called..."); }
+    B(const B &r) : a__(r.a__) {
+        HASAKI_INFO("B(const B&) wall called...");
+    }
 
     // B &operator=(const B &r) {
     //     HASAKI_INFO("B& operator=(const B&) wall called...");
@@ -69,10 +77,30 @@ int main(int argc, char **args) {
     //     printf(SQL_FORMAT.c_str(), tagName, uid, days, days);
     // }
     // 00000000 10000001
-    hasaki::base::ByteBuffer byteBuffer;
-    byteBuffer.WriteInt16(129);  // 00000000 10000001   // vector:  10000001  00000000
-    std::cout << byteBuffer.ReadInt16() << std::endl;
+    // hasaki::base::ByteBuffer byteBuffer;
+    // byteBuffer.WriteInt16(129);  // 00000000 10000001   // vector:  10000001 00000000
+    // std::cout << byteBuffer.ReadInt16() << std::endl;
     // 10000001  00000000
     //
+    using Bf = hasaki::base::ByteBuffer;
+    Bf bf;
+    bf.WriteInt64(123333L);
+    bf.WriteInt64(123333L);
+    bf.WriteInt64(123333L);
+    bf.WriteInt64(123333L);
+    bf.WriteInt64(123333L);
+    bf.WriteInt64(123333L);
+    HASAKI_INFO("size:{}, cap:{}", bf.SizeOfBuffer(), bf.CapacityOfBuffer());
+    bf.CleanAndShrink();
+    HASAKI_INFO("size:{}, cap:{}", bf.SizeOfBuffer(), bf.CapacityOfBuffer());
+    // for (int64_t i = -12323312334; i < 981233; i++) {
+    //     HASAKI_INFO("i = {}, bufferSize:{}, bufferCap:{}", i, bf.SizeOfBuffer(),
+    //                 bf.CapacityOfBuffer());
+    //     bf.WriteInt64(i);
+    //     if (bf.ReadInt64() != i) {
+    //         HASAKI_ERROR("error, i = {}", i);
+    //         break;
+    //     }
+    // }
     return 0;
 }
