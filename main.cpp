@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 
+#include "byte_buffer.h"
 #include "inet_address.h"
 #include "logger.h"
 #include "timestamp.h"
@@ -56,16 +57,22 @@ static std::string SQL_FORMAT =
     "ON DUPLICATE KEY UPDATE expire_time = DATE_ADD( expire_time, INTERVAL %d DAY );\n";
 
 int main(int argc, char **args) {
-    hasaki::net::InetAddress ineAddress;
+    // hasaki::net::InetAddress ineAddress;
 
-    int days = 10;
-    const char *tagName = std::string("sp180584").c_str();
-    std::vector<long> uids__ = {45084387, 1000409587, 18826590, 24967602,  39597782,
-                                44798517, 44001061,   41218670, 21357758,  43078084,
-                                42191246, 39161779,   48509085, 1000341736};
+    // int days = 10;
+    // const char *tagName = std::string("sp180584").c_str();
+    // std::vector<long> uids__ = {45084387, 1000409587, 18826590, 24967602,  39597782,
+    //                             44798517, 44001061,   41218670, 21357758,  43078084,
+    //                             42191246, 39161779,   48509085, 1000341736};
 
-    for (auto uid : uids__) {
-        printf(SQL_FORMAT.c_str(), tagName, uid, days, days);
-    }
+    // for (auto uid : uids__) {
+    //     printf(SQL_FORMAT.c_str(), tagName, uid, days, days);
+    // }
+    // 00000000 10000001
+    hasaki::base::ByteBuffer byteBuffer;
+    byteBuffer.WriteInt16(129);  // 00000000 10000001   // vector:  10000001  00000000
+    std::cout << byteBuffer.ReadInt16() << std::endl;
+    // 10000001  00000000
+    //
     return 0;
 }

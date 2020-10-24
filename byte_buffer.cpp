@@ -1,4 +1,5 @@
 #include "byte_buffer.h"
+
 #include "hasaki_global.h"
 
 namespace hasaki {
@@ -10,28 +11,28 @@ void ByteBuffer::WriteInt8(int8_t x) {
 }
 
 void ByteBuffer::WriteInt16(int16_t x) {
-    buf__.push_back(static_cast<char>((x >> 0) & 0xff));
-    buf__.push_back(static_cast<char>((x >> 8) & 0xff));
+    buf__.push_back(static_cast<char>(x >> 0));
+    buf__.push_back(static_cast<char>(x >> 8));
     writeIndex__ += sizeof(int16_t);
 }
 
 void ByteBuffer::WriteInt32(int32_t x) {
-    buf__.push_back(static_cast<char>((x >> 0) & 0xff));
-    buf__.push_back(static_cast<char>((x >> 8) & 0xff));
-    buf__.push_back(static_cast<char>((x >> 16) & 0xff));
-    buf__.push_back(static_cast<char>((x >> 24) & 0xff));
+    buf__.push_back(static_cast<char>(x >> 0));
+    buf__.push_back(static_cast<char>(x >> 8));
+    buf__.push_back(static_cast<char>(x >> 16));
+    buf__.push_back(static_cast<char>(x >> 24));
     writeIndex__ += sizeof(int32_t);
 }
 
 void ByteBuffer::WriteInt64(int64_t x) {
-    buf__.push_back(static_cast<char>((x >> 0) & 0xff));
-    buf__.push_back(static_cast<char>((x >> 8) & 0xff));
-    buf__.push_back(static_cast<char>((x >> 16) & 0xff));
-    buf__.push_back(static_cast<char>((x >> 24) & 0xff));
-    buf__.push_back(static_cast<char>((x >> 32) & 0xff));
-    buf__.push_back(static_cast<char>((x >> 40) & 0xff));
-    buf__.push_back(static_cast<char>((x >> 48) & 0xff));
-    buf__.push_back(static_cast<char>((x >> 56) & 0xff));
+    buf__.push_back(static_cast<char>(x >> 0));
+    buf__.push_back(static_cast<char>(x >> 8));
+    buf__.push_back(static_cast<char>(x >> 16));
+    buf__.push_back(static_cast<char>(x >> 24));
+    buf__.push_back(static_cast<char>(x >> 32));
+    buf__.push_back(static_cast<char>(x >> 40));
+    buf__.push_back(static_cast<char>(x >> 48));
+    buf__.push_back(static_cast<char>(x >> 56));
     writeIndex__ += sizeof(int64_t);
 }
 
@@ -45,9 +46,9 @@ void ByteBuffer::Write(void *src, std::size_t writelen) {
 int8_t ByteBuffer::ReadInt8() {
     if (writeIndex__ - readIndex__ < sizeof(int8_t)) {
 #ifdef HASAKI_NO_EXCEPTIONS
-        HASAKI_PANIC("ByteBuffer have no 8 bytes to read!");
+        HASAKI_PANIC("ByteBuffer have no 8 bits to read!");
 #else
-        HASAKI_THROW(std::out_of_range("ByteBuffer have no 8 bytes to read!"));
+        HASAKI_THROW(std::out_of_range("ByteBuffer have no 8 bits to read!"));
 #endif
     }
     int8_t value = buf__[readIndex__];
@@ -58,30 +59,58 @@ int8_t ByteBuffer::ReadInt8() {
 int16_t ByteBuffer::ReadInt16() {
     if (writeIndex__ - readIndex__ < sizeof(int16_t)) {
 #ifdef HASAKI_NO_EXCEPTIONS
-        HASAKI_PANIC("ByteBuffer have no 16 bytes to read!");
+        HASAKI_PANIC("ByteBuffer have no 16 bits to read!");
 #else
-        HASAKI_THROW(std::out_of_range("ByteBuffer have no 16 bytes to read!"));
+        HASAKI_THROW(std::out_of_range("ByteBuffer have no 16 bits to read!"));
 #endif
     }
-    char high = buf__[readIndex__ + 1];
-    char low = buf__[readIndex__];
+    int16_t value = static_cast<int16_t>((buf__[readIndex__ + 1] << 8) |
+                                         (buf__[readIndex__] & 0xff));
     readIndex__ += sizeof(int16_t);
-    return;
+    return value;
 }
 
 int32_t ByteBuffer::ReadInt32() {
+    if (writeIndex__ - readIndex__ < sizeof(int32_t)) {
+#ifdef HASAKI_NO_EXCEPTIONS
+        HASAKI_PANIC("ByteBuffer have no 32 bits to read!");
+#else
+        HASAKI_THROW(std::out_of_range("ByteBuffer have no 32 bits to read!"));
+#endif
+    }
+    int32_t value =
+        (buf__[readIndex__ + 3] << 24) | ((buf__[readIndex__ + 2] & 0xff) << 16) |
+        ((buf__[readIndex__ + 1] & 0xff) << 8) | (buf__[readIndex__] & 0xff);
+
+    // MARK
+    readIndex__ += sizeof(int32_t);
+    return value;
 }
 
 int64_t ByteBuffer::ReadInt64() {
+    if (writeIndex__ - readIndex__ < sizeof(int64_t)) {
+#ifdef HASAKI_NO_EXCEPTIONS
+        HASAKI_PANIC("ByteBuffer have no 64 bits to read!");
+#else
+        HASAKI_THROW(std::out_of_range("ByteBuffer have no 64 bits to read!"));
+#endif
+    }
+    int64_t value = ((static_cast<int64_t>(buf__[readIndex__ + 7])) << 56) |
+                    ((static_cast<int64_t>(buf__[readIndex__ + 6] & 0xff)) << 48) |
+                    ((static_cast<int64_t>(buf__[readIndex__ + 5] & 0xff)) << 40) |
+                    ((static_cast<int64_t>(buf__[readIndex__ + 4] & 0xff)) << 32) |
+                    ((static_cast<int64_t>(buf__[readIndex__ + 3] & 0xff)) << 24) |
+                    ((static_cast<int64_t>(buf__[readIndex__ + 2] & 0xff)) << 16) |
+                    ((static_cast<int64_t>(buf__[readIndex__ + 1] & 0xff)) << 8) |
+                    ((static_cast<int64_t>(buf__[readIndex__] & 0xff)));
+    readIndex__ += sizeof(int64_t);
+    return value;
 }
 
-void ByteBuffer::Read(void *dst, std::size_t readlen) {
-}
+void ByteBuffer::Read(void *dst, std::size_t readlen) {}
 
-std::size_t ByteBuffer::ReadableBytes() const {
-    return (writeIndex__ - readIndex__);
-}
+std::size_t ByteBuffer::ReadableBytes() const { return (writeIndex__ - readIndex__); }
 
-} // namespace base
+}  // namespace base
 
-} // namespace hasaki
+}  // namespace hasaki
