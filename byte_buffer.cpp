@@ -10,28 +10,28 @@ void ByteBuffer::WriteInt8(int8_t x) {
 }
 
 void ByteBuffer::WriteInt16(int16_t x) {
-    buf__.push_back((char)(x >> 8));
-    buf__.push_back((char)x);
+    buf__.push_back(static_cast<char>((x >> 0) & 0xff));
+    buf__.push_back(static_cast<char>((x >> 8) & 0xff));
     writeIndex__ += sizeof(int16_t);
 }
 
 void ByteBuffer::WriteInt32(int32_t x) {
-    buf__.push_back((char)(x >> 24));
-    buf__.push_back((char)(x >> 16));
-    buf__.push_back((char)(x >> 8));
-    buf__.push_back((char)x);
+    buf__.push_back(static_cast<char>((x >> 0) & 0xff));
+    buf__.push_back(static_cast<char>((x >> 8) & 0xff));
+    buf__.push_back(static_cast<char>((x >> 16) & 0xff));
+    buf__.push_back(static_cast<char>((x >> 24) & 0xff));
     writeIndex__ += sizeof(int32_t);
 }
 
 void ByteBuffer::WriteInt64(int64_t x) {
-    buf__.push_back((char)(x >> 56));
-    buf__.push_back((char)(x >> 48));
-    buf__.push_back((char)(x >> 40));
-    buf__.push_back((char)(x >> 32));
-    buf__.push_back((char)(x >> 24));
-    buf__.push_back((char)(x >> 16));
-    buf__.push_back((char)(x >> 8));
-    buf__.push_back((char)x);
+    buf__.push_back(static_cast<char>((x >> 0) & 0xff));
+    buf__.push_back(static_cast<char>((x >> 8) & 0xff));
+    buf__.push_back(static_cast<char>((x >> 16) & 0xff));
+    buf__.push_back(static_cast<char>((x >> 24) & 0xff));
+    buf__.push_back(static_cast<char>((x >> 32) & 0xff));
+    buf__.push_back(static_cast<char>((x >> 40) & 0xff));
+    buf__.push_back(static_cast<char>((x >> 48) & 0xff));
+    buf__.push_back(static_cast<char>((x >> 56) & 0xff));
     writeIndex__ += sizeof(int64_t);
 }
 
@@ -56,6 +56,17 @@ int8_t ByteBuffer::ReadInt8() {
 }
 
 int16_t ByteBuffer::ReadInt16() {
+    if (writeIndex__ - readIndex__ < sizeof(int16_t)) {
+#ifdef HASAKI_NO_EXCEPTIONS
+        HASAKI_PANIC("ByteBuffer have no 16 bytes to read!");
+#else
+        HASAKI_THROW(std::out_of_range("ByteBuffer have no 16 bytes to read!"));
+#endif
+    }
+    char high = buf__[readIndex__ + 1];
+    char low = buf__[readIndex__];
+    readIndex__ += sizeof(int16_t);
+    return;
 }
 
 int32_t ByteBuffer::ReadInt32() {

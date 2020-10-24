@@ -6,7 +6,7 @@
 namespace hasaki {
 namespace base {
 
-// ByteBuffer is a not thread-safe buffer with small-endian.
+// ByteBuffer is a not thread-safe buffer with little-endian.
 //
 class ByteBuffer {
 public:
