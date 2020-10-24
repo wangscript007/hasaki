@@ -2,6 +2,8 @@
 #include "timestamp.h"
 #include <iostream>
 #include <memory>
+#include <string>
+#include <vector>
 
 // clang++ main.cpp -std=c++11
 
@@ -52,32 +54,22 @@ public:
     std::shared_ptr<User> faUser__;
 };
 
+static std::string SQL_FORMAT =
+    "INSERT INTO user_grant_qualify_tag SET `name` = '%s',uid = %ld,"
+    "expire_time = DATE_ADD( NOW( ), INTERVAL %d DAY ),"
+    "type = 15,"
+    "ctime = NOW( ) "
+    "ON DUPLICATE KEY UPDATE expire_time = DATE_ADD( expire_time, INTERVAL %d DAY );\n";
+
 int main(int argc, char **args) {
-    // B b1;
-    // B b2 = b1; // copy constructor.
-    // B b2;
-    // b2 = b1;
+    int days = 10;
+    const char *tagName = std::string("sp180584").c_str();
+    std::vector<long> uids__ = {45084387, 1000409587, 18826590, 24967602,  39597782,
+                                44798517, 44001061,   41218670, 21357758,  43078084,
+                                42191246, 39161779,   48509085, 1000341736};
 
-    B b1;
-    // std::cout << "------------------------------" << std::endl;
-    // B b2 = b1;
-    B b2;
-    b2 = b1;
-
-    // xxxxxx
-    Teacher t;
-    t.faUser__.reset(new User);
-    std::cout << t.faUser__.use_count() << std::endl;
-
-    Teacher t2 = t;
-    std::cout << t.faUser__.use_count() << std::endl;
-    std::cout << t2.faUser__.use_count() << std::endl;
-
-    // Teacher t3;
-    // t3 = t;
-    // std::cout << t.faUser__.use_count() << std::endl;
-    hasaki::base::Timestamp tt1;
-    hasaki::base::Timestamp tt2;
-    tt1 < tt2;
+    for (auto uid : uids__) {
+        printf(SQL_FORMAT.c_str(), tagName, uid, days, days);
+    }
     return 0;
 }
