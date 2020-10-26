@@ -1,16 +1,22 @@
 #include "socket_channel.h"
+
 #include "event_loop.h"
 
 namespace hasaki {
 namespace net {
 
-SocketChannel::SocketChannel(std::shared_ptr<hasaki::net::EventLoop> &eventLoop)
-    : fd__(-1) {
-    eventLoop__ = eventLoop;
+SocketChannel::SocketChannel(std::shared_ptr<hasaki::net::EventLoop>& eventLoop, int fd)
+    : eventLoop__(eventLoop), fd__(fd) {}
+
+SocketChannel::~SocketChannel() {}
+
+void SocketChannel::Tie(const std::shared_ptr<void>&) {
+    // FIXME
 }
 
-SocketChannel::~SocketChannel() {
+void SocketChannel::HandleEvents(hasaki::base::Timestamp recvTime) {
+    // FIXME
 }
 
-} // namespace net
-} // namespace hasaki
+}  // namespace net
+}  // namespace hasaki
