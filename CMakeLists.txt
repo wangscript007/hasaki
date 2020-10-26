@@ -15,7 +15,7 @@ set(CMAKE_MACOSX_RPATH 1)
 set(LIBRARY_OUTPUT_DIRECTORY, ${PROJECT_SOURCE_DIR}/lib)
 
 # enable debug and stdc++11
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -std=c++11 -Wc++11-extensions")
 
 # set the src files which wants to be compiled.
 aux_source_directory(. SRC_LIST)

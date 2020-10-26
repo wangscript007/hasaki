@@ -4,8 +4,12 @@
 CMakeFiles/hasaki.dir/acceptor.o: ../acceptor.cpp
 CMakeFiles/hasaki.dir/acceptor.o: ../acceptor.h
 
+CMakeFiles/hasaki.dir/app_server.o: ../app_server.cpp
+CMakeFiles/hasaki.dir/app_server.o: ../app_server.h
+
 CMakeFiles/hasaki.dir/byte_buffer.o: ../byte_buffer.cpp
 CMakeFiles/hasaki.dir/byte_buffer.o: ../byte_buffer.h
+CMakeFiles/hasaki.dir/byte_buffer.o: ../hasaki_global.h
 
 CMakeFiles/hasaki.dir/event_loop.o: ../event_loop.cpp
 CMakeFiles/hasaki.dir/event_loop.o: ../event_loop.h
@@ -13,6 +17,7 @@ CMakeFiles/hasaki.dir/event_loop.o: ../event_loop.h
 CMakeFiles/hasaki.dir/inet_address.o: ../inet_address.cpp
 CMakeFiles/hasaki.dir/inet_address.o: ../inet_address.h
 
+CMakeFiles/hasaki.dir/main.o: ../byte_buffer.h
 CMakeFiles/hasaki.dir/main.o: ../inet_address.h
 CMakeFiles/hasaki.dir/main.o: ../logger.h
 CMakeFiles/hasaki.dir/main.o: ../main.cpp
@@ -66,8 +71,13 @@ CMakeFiles/hasaki.dir/main.o: /usr/local/include/spdlog/spdlog.h
 CMakeFiles/hasaki.dir/main.o: /usr/local/include/spdlog/tweakme.h
 CMakeFiles/hasaki.dir/main.o: /usr/local/include/spdlog/version.h
 
+CMakeFiles/hasaki.dir/poller.o: ../poller.cpp
+
+CMakeFiles/hasaki.dir/socket_channel.o: ../event_loop.h
+CMakeFiles/hasaki.dir/socket_channel.o: ../noncopyable.h
 CMakeFiles/hasaki.dir/socket_channel.o: ../socket_channel.cpp
 CMakeFiles/hasaki.dir/socket_channel.o: ../socket_channel.h
+CMakeFiles/hasaki.dir/socket_channel.o: ../timestamp.h
 
 CMakeFiles/hasaki.dir/timestamp.o: ../timestamp.cpp
 CMakeFiles/hasaki.dir/timestamp.o: ../timestamp.h

@@ -3,5 +3,3 @@
 namespace hasaki {
 namespace net {} // namespace net
 } // namespace hasaki
-
-#endif

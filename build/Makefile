@@ -158,6 +158,21 @@ acceptor.s:
 .PHONY : acceptor.s
 
 # target to build an object file
+app_server.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/app_server.o
+.PHONY : app_server.o
+
+# target to preprocess a source file
+app_server.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/app_server.i
+.PHONY : app_server.i
+
+# target to generate assembly for a file
+app_server.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/app_server.s
+.PHONY : app_server.s
+
+# target to build an object file
 byte_buffer.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/byte_buffer.o
 .PHONY : byte_buffer.o
@@ -218,6 +233,21 @@ main.s:
 .PHONY : main.s
 
 # target to build an object file
+poller.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/poller.o
+.PHONY : poller.o
+
+# target to preprocess a source file
+poller.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/poller.i
+.PHONY : poller.i
+
+# target to generate assembly for a file
+poller.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/poller.s
+.PHONY : poller.s
+
+# target to build an object file
 socket_channel.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/socket_channel.o
 .PHONY : socket_channel.o
@@ -259,6 +289,9 @@ help:
 	@echo "... acceptor.o"
 	@echo "... acceptor.i"
 	@echo "... acceptor.s"
+	@echo "... app_server.o"
+	@echo "... app_server.i"
+	@echo "... app_server.s"
 	@echo "... byte_buffer.o"
 	@echo "... byte_buffer.i"
 	@echo "... byte_buffer.s"
@@ -271,6 +304,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... poller.o"
+	@echo "... poller.i"
+	@echo "... poller.s"
 	@echo "... socket_channel.o"
 	@echo "... socket_channel.i"
 	@echo "... socket_channel.s"
