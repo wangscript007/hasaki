@@ -1,12 +1,14 @@
 #ifndef __HASAKI_SOCKET_CHANNEL_H__
 #define __HASAKI_SOCKET_CHANNEL_H__
 
-#include <functional>
-#include <memory>
-#include <vector>
-
+#include "hasaki_global.h"
 #include "noncopyable.h"
 #include "timestamp.h"
+
+#include <functional>
+#include <memory>
+#include <sys/poll.h>
+#include <vector>
 
 namespace hasaki {
 namespace net {
@@ -16,10 +18,10 @@ class Poller;
 class EventLoop;
 
 namespace {
-static const int NONE_EVENT = 0;
-static const int READ_EVENT = 1;
-static const int WRITE_EVENT = 2;
-}  // namespace
+const int NONE_EVENT = 0;
+const int READ_EVENT = 1;
+const int WRITE_EVENT = 2;
+} // namespace
 
 // SocketChannel is a wrapper for client fd and it's events.
 class SocketChannel : public hasaki::noncopyable {
@@ -29,21 +31,33 @@ public:
     using ReadEventCallbackFn = std::function<void(hasaki::base::Timestamp)>;
 
 public:
-    SocketChannel(std::shared_ptr<hasaki::net::EventLoop>& eventloop, int fd);
+    SocketChannel(std::shared_ptr<hasaki::net::EventLoop> &eventloop, int fd);
 
     ~SocketChannel();
 
-    int fd() const { return fd__; }
+    int fd() const {
+        return fd__;
+    }
 
-    int InterestEvents() const { return interestEvents__; }
+    int index() const {
+        return index__;
+    }
 
-    void SetReadyEvents(int readyEvents) { readyEvents__ = readyEvents; }
+    void SetIndex(int index) {
+        index__ = index;
+    }
+
+    void SetReadyEvents(int readyEvents) {
+        readyEvents__ = readyEvents;
+    }
+
+    int InterestEvents() const {
+        return interestEvents__;
+    }
 
     void HandleEvents(hasaki::base::Timestamp recvTime);
 
-    void Update();
-
-    void Tie(const std::shared_ptr<void>&);
+    void Tie(const std::shared_ptr<void> &);
 
     void EnableRead() {
         interestEvents__ |= READ_EVENT;
@@ -65,30 +79,49 @@ public:
         Update();
     }
 
-    void SetWriteEventCallback(EventCallbackFn& callbackFn) {
+    void DisableAll() {
+        interestEvents__ = NONE_EVENT;
+        Update();
+    }
+
+    bool IsInterestWithRead() const {
+        // CHNAGE LINE
+        return interestEvents__ & READ_EVENT;
+    }
+
+    bool IsInterestWithWrite() const {
+        // CHNAGE LINE
+        return interestEvents__ & WRITE_EVENT;
+    }
+
+    void SetWriteEventCallback(EventCallbackFn &callbackFn) {
         writeEventCallbackFn__ = callbackFn;
     }
 
-    void SetCloseEventCallback(EventCallbackFn& callbackFn) {
+    void SetCloseEventCallback(EventCallbackFn &callbackFn) {
         closeEventCallbackFn__ = callbackFn;
     }
 
-    void SetErrorEventCallback(EventCallbackFn& callbackFn) {
+    void SetErrorEventCallback(EventCallbackFn &callbackFn) {
         errorEventCallbackFn__ = callbackFn;
     }
 
-    void SetReadEventCallback(ReadEventCallbackFn& callbackFn) {
+    void SetReadEventCallback(ReadEventCallbackFn &callbackFn) {
         readEventCallbackFn__ = callbackFn;
     }
 
 private:
-    const int fd__;        // the file descriptor
-    int interestEvents__;  // interest events the fd registed
-    int readyEvents__;     // real ready events when events occured behind the fd
-    int index__;           // oops.
+    void Update();
+    void HandleEventsWithGuard(hasaki::base::Timestamp recvTime);
 
-    std::shared_ptr<hasaki::net::EventLoop> eventLoop__;  // event loop ptr
-    std::shared_ptr<hasaki::net::Poller> poller__;        // poller ptr
+private:
+    const int fd__;       // the file descriptor
+    int interestEvents__; // interest events the fd registed
+    int readyEvents__;    // real ready events when events occured behind the fd
+    int index__;          // for business op.
+
+    std::shared_ptr<hasaki::net::EventLoop> eventLoop__; // event loop ptr
+    std::shared_ptr<hasaki::net::Poller> poller__;       // poller ptr
 
     std::weak_ptr<void> tie__;
     bool tied__;
@@ -99,7 +132,7 @@ private:
     ReadEventCallbackFn readEventCallbackFn__;
 };
 
-}  // namespace net
-}  // namespace hasaki
+} // namespace net
+} // namespace hasaki
 
 #endif
