@@ -11,6 +11,7 @@ namespace hasaki {
 namespace net {
 
 // Forward declarations.
+class Poller;
 class EventLoop;
 
 // SocketChannel is a wrapper for client fd and it's events.
@@ -30,6 +31,8 @@ private:
     int readyEvents__;
 
     std::shared_ptr<hasaki::net::EventLoop> eventLoop__;
+    std::shared_ptr<hasaki::net::Poller> poller__;
+
     EventCallbackFn errorEventCallbackFn__;
     EventCallbackFn writeEventCallbackFn__;
     ReadEventCallbackFn readEventCallbackFn__;
