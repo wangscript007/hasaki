@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <memory>
+#include <set>
 #include <string>
 #include <vector>
 
@@ -10,7 +11,7 @@
 #include "inet_address.h"
 #include "logger.h"
 #include "timestamp.h"
-
+#include <typeinfo>
 // clang++ main.cpp -std=c++11
 
 class A {
@@ -60,6 +61,53 @@ public:
     std::shared_ptr<User> faUser__;
 };
 
+// ====================================================================================================
+template <typename _Tp> class DynamicArray {
+public:
+    DynamicArray() {
+        this->data__ = new _Tp[16];
+        this->size__ = 0;
+        this->cap__ = 16;
+    }
+    DynamicArray(const DynamicArray<_Tp> &rhs) {
+        std::cout << "DynamicArray(const DynamicArray<_Tp> &rhs) ..." << std::endl;
+        this->data__ = new _Tp[rhs.cap__];
+        this->size__ = rhs.size__;
+        this->cap__ = rhs.cap__;
+    }
+    DynamicArray(DynamicArray<_Tp> &&rhs) {
+        std::cout << "DynamicArray(DynamicArray<_Tp> &&rhs) {" << std::endl;
+        this->data__ = rhs.data__;
+        this->size__ = rhs.size__;
+        this->cap__ = rhs.cap__;
+        rhs.data__ = nullptr;
+        rhs.size__ = 0;
+        rhs.cap__ = 0;
+
+        // std::cout << typeid(rhs).name() << std::endl;
+        test(rhs);
+    }
+
+    void test(DynamicArray<_Tp> &&) {
+        std::cout << "test(DynamicArray<_Tp> &&)" << std::endl;
+    }
+
+    // void test(DynamicArray<_Tp> t) {
+    //     std::cout << "test(DynamicArray<_Tp> t) " << std::endl;
+    // }
+
+    // void test(DynamicArray<_Tp> &t) {
+    //     std::cout << "test(DynamicArray<_Tp> &t)" << std::endl;
+    // }
+
+private:
+    _Tp *data__;
+    std::size_t size__;
+    std::size_t cap__;
+};
+
+// ====================================================================================================
+
 static std::string SQL_FORMAT =
     "INSERT INTO user_grant_qualify_tag SET `name` = '%s',uid = %ld,"
     "expire_time = DATE_ADD( NOW( ), INTERVAL %d DAY ),"
@@ -106,5 +154,21 @@ int main(int argc, char **args) {
     // std::less<int> less;
     // auto x = std::bind(less, 1, 1, 2);
     // std::cout << x(100, 2, 3, 4, 5) << std::endl;
+
+    std::vector<int> v;
+    int a = 10;
+    v.push_back(std::move(a));
+
+    //
+    DynamicArray<int> v1;
+    DynamicArray<int> v2 = std::move(v1);
+
+    // auto b = std::move(a);
+
+    // std::set<int> set;
+    // set.insert(std::move(a));
+
+    std::unique_ptr<int> sp(new int);
+    std::unique_ptr<int> sp2(std::move(sp));
     return 0;
 }

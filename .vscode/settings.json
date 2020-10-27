@@ -61,7 +61,10 @@
         "type_traits": "cpp",
         "typeinfo": "cpp",
         "unordered_map": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "__tree": "cpp",
+        "map": "cpp",
+        "set": "cpp"
     },
     "editor.formatOnSave": true,
     "clang-format.executable": "/usr/local/Cellar/clang-format/10.0.1/bin/clang-format"

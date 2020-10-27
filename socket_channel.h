@@ -1,7 +1,7 @@
 #ifndef __HASAKI_SOCKET_CHANNEL_H__
 #define __HASAKI_SOCKET_CHANNEL_H__
 
-#include "hasaki_global.h"
+#include "hasaki_core.h"
 #include "noncopyable.h"
 #include "timestamp.h"
 
@@ -35,25 +35,15 @@ public:
 
     ~SocketChannel();
 
-    int fd() const {
-        return fd__;
-    }
+    int fd() const { return fd__; }
 
-    int index() const {
-        return index__;
-    }
+    int index() const { return index__; }
 
-    void SetIndex(int index) {
-        index__ = index;
-    }
+    void SetIndex(int index) { index__ = index; }
 
-    void SetReadyEvents(int readyEvents) {
-        readyEvents__ = readyEvents;
-    }
+    void SetReadyEvents(int readyEvents) { readyEvents__ = readyEvents; }
 
-    int InterestEvents() const {
-        return interestEvents__;
-    }
+    int InterestEvents() const { return interestEvents__; }
 
     void HandleEvents(hasaki::base::Timestamp recvTime);
 
