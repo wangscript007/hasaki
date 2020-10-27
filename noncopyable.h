@@ -1,6 +1,12 @@
 #ifndef __HASAKI_NONCOPYABLE_H__
 #define __HASAKI_NONCOPYABLE_H__
 
+// Deprecated usage.
+#define DISABLE_COPY_AND_ASSIGN(_Ty)                                                   \
+private:                                                                               \
+    _Ty(const _Ty &);                                                                  \
+    _Ty &operator=(const _Ty &);
+
 ///
 /// hasaki::base::noncopyable likes boost::noncopyable.
 ///
@@ -29,8 +35,8 @@ private:
 #endif
 };
 
-}  // namespace  base
+} // namespace  base
 typedef base::noncopyable noncopyable;
-}  // namespace hasaki
+} // namespace hasaki
 
 #endif

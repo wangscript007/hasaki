@@ -1,6 +1,6 @@
 #include "byte_buffer.h"
 
-#include "hasaki_global.h"
+#include "hasaki_core.h"
 
 namespace hasaki {
 namespace base {
