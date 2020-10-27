@@ -7,9 +7,7 @@ private:                                                                        
     _Ty(const _Ty &);                                                                  \
     _Ty &operator=(const _Ty &);
 
-///
 /// hasaki::base::noncopyable likes boost::noncopyable.
-///
 namespace hasaki {
 namespace base {
 
@@ -17,8 +15,10 @@ class noncopyable {
 public:
 // constructor and destrutor
 #if __cplusplus < 201103L
-    noncopyable() {}
-    ~noncopyable() {}
+    noncopyable() {
+    }
+    ~noncopyable() {
+    }
 #else
     constexpr noncopyable() = default;
     ~noncopyable() = default;

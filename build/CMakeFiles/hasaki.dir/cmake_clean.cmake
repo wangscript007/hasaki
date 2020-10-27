@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "../lib/libhasaki.dylib"
+  "../lib/libhasaki.pdb"
   "CMakeFiles/hasaki.dir/acceptor.o"
   "CMakeFiles/hasaki.dir/app_server.o"
   "CMakeFiles/hasaki.dir/byte_buffer.o"
@@ -8,8 +10,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/hasaki.dir/poller.o"
   "CMakeFiles/hasaki.dir/socket_channel.o"
   "CMakeFiles/hasaki.dir/timestamp.o"
-  "libhasaki.dylib"
-  "libhasaki.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,11 +1,12 @@
 #ifndef __HASAKI_POLLER_H__
 #define __HASAKI_POLLER_H__
 
-#include "noncopyable.h"
-#include "timestamp.h"
 #include <map>
 #include <memory>
 #include <vector>
+
+#include "noncopyable.h"
+#include "timestamp.h"
 
 namespace hasaki {
 namespace net {
@@ -36,8 +37,8 @@ public:
     virtual void RemoveChannel(hasaki::net::SocketChannel *channel) = 0;
 
     // Poll the io events int the channel list.
-    virtual hasaki::base::Timestamp poll(
-        std::vector<hasaki::net::SocketChannel *> *activeChannels) = 0;
+    virtual hasaki::base::Timestamp Poll(
+        std::vector<hasaki::net::SocketChannel *> *activeChannels, int timeoutMs) = 0;
 
 protected:
     std::map<fd_t, SocketChannel *> channels__;
@@ -46,7 +47,7 @@ private:
     std::shared_ptr<hasaki::net::EventLoop> ownerEventLoop__;
 };
 
-} // namespace net
-} // namespace hasaki
+}  // namespace net
+}  // namespace hasaki
 
 #endif

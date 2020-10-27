@@ -85,7 +85,7 @@ public:
         rhs.cap__ = 0;
 
         // std::cout << typeid(rhs).name() << std::endl;
-        test(rhs);
+        test(std::move(rhs));
     }
 
     void test(DynamicArray<_Tp> &&) {
