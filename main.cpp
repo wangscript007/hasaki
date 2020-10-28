@@ -109,18 +109,22 @@ private:
 // ====================================================================================================
 
 static std::string SQL_FORMAT =
-    "INSERT INTO user_grant_qualify_tag SET `name` = '%s',uid = %ld,"
-    "expire_time = DATE_ADD( NOW( ), INTERVAL %d DAY ),"
-    "type = 15,"
-    "ctime = NOW( ) "
-    "ON DUPLICATE KEY UPDATE expire_time = DATE_ADD( expire_time, INTERVAL %d DAY );\n";
+    " INSERT INTO user_grant_qualify_tag (`name`, uid, expire_time, type, ctime)"
+    " VALUES ('%s', %ld, DATE_ADD(NOW(), INTERVAL %d DAY), 15, NOW())"
+    " ON DUPLICATE KEY UPDATE expire_time = DATE_ADD(CASE "
+    " WHEN expire_time > NOW() THEN expire_time"
+    " ELSE NOW()"
+    " END, INTERVAL %d DAY); \n";
 
 int main(int argc, char **args) {
     // hasaki::net::InetAddress ineAddress;
 
-    int days = 30;
-    const char *tagName = std::string("sp180502").c_str();
-    std::vector<long> uids__ = {42564073, 1000534082};
+    int days = 10;
+    const char *tagName = std::string("sp180584").c_str();
+    std::vector<long> uids__ = {35193736, 38828266, 42901411,  1000534082, 46548027,
+                                48926289, 44360134, 36946915,  1000545723, 45945465,
+                                4788407,  44430092, 46027121,  48032875,   1000317413,
+                                45570453, 43989354, 1000620007};
 
     for (auto uid : uids__) {
         printf(SQL_FORMAT.c_str(), tagName, uid, days, days);

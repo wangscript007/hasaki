@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/hasaki.dir/inet_address.o"
   "CMakeFiles/hasaki.dir/main.o"
   "CMakeFiles/hasaki.dir/poller.o"
+  "CMakeFiles/hasaki.dir/poller_epoll.o"
+  "CMakeFiles/hasaki.dir/poller_select.o"
   "CMakeFiles/hasaki.dir/socket_channel.o"
   "CMakeFiles/hasaki.dir/timestamp.o"
 )

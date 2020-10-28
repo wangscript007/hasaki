@@ -7,6 +7,10 @@
 namespace hasaki {
 namespace net {
 
+EpollPoller::EpollPoller(std::shared_ptr<EventLoop> &eventLoop) : Poller(eventLoop) {
+    // epoll_create1().
+}
+
 void EpollPoller::UpdateChannel(hasaki::net::SocketChannel *channel) {
 }
 

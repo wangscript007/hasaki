@@ -248,6 +248,36 @@ poller.s:
 .PHONY : poller.s
 
 # target to build an object file
+poller_epoll.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/poller_epoll.o
+.PHONY : poller_epoll.o
+
+# target to preprocess a source file
+poller_epoll.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/poller_epoll.i
+.PHONY : poller_epoll.i
+
+# target to generate assembly for a file
+poller_epoll.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/poller_epoll.s
+.PHONY : poller_epoll.s
+
+# target to build an object file
+poller_select.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/poller_select.o
+.PHONY : poller_select.o
+
+# target to preprocess a source file
+poller_select.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/poller_select.i
+.PHONY : poller_select.i
+
+# target to generate assembly for a file
+poller_select.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/poller_select.s
+.PHONY : poller_select.s
+
+# target to build an object file
 socket_channel.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/socket_channel.o
 .PHONY : socket_channel.o
@@ -307,6 +337,12 @@ help:
 	@echo "... poller.o"
 	@echo "... poller.i"
 	@echo "... poller.s"
+	@echo "... poller_epoll.o"
+	@echo "... poller_epoll.i"
+	@echo "... poller_epoll.s"
+	@echo "... poller_select.o"
+	@echo "... poller_select.i"
+	@echo "... poller_select.s"
 	@echo "... socket_channel.o"
 	@echo "... socket_channel.i"
 	@echo "... socket_channel.s"

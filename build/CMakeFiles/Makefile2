@@ -93,12 +93,12 @@ clean: CMakeFiles/hasaki.dir/clean
 CMakeFiles/hasaki.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hasaki.dir/build.make CMakeFiles/hasaki.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target hasaki"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target hasaki"
 .PHONY : CMakeFiles/hasaki.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/hasaki.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kuiper/MyCodes/hasaki/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kuiper/MyCodes/hasaki/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/hasaki.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kuiper/MyCodes/hasaki/build/CMakeFiles 0
 .PHONY : CMakeFiles/hasaki.dir/rule

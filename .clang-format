@@ -1,5 +1,5 @@
 Language: Cpp
-BasedOnStyle: Microsoft
+BasedOnStyle: google
 Standard: Cpp11
 UseTab: Never
 IndentWidth: 4

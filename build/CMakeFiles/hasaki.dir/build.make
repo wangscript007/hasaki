@@ -167,9 +167,35 @@ CMakeFiles/hasaki.dir/poller.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hasaki.dir/poller.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/hasaki/poller.cpp -o CMakeFiles/hasaki.dir/poller.s
 
+CMakeFiles/hasaki.dir/poller_epoll.o: CMakeFiles/hasaki.dir/flags.make
+CMakeFiles/hasaki.dir/poller_epoll.o: ../poller_epoll.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/hasaki.dir/poller_epoll.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hasaki.dir/poller_epoll.o -c /Users/kuiper/MyCodes/hasaki/poller_epoll.cpp
+
+CMakeFiles/hasaki.dir/poller_epoll.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hasaki.dir/poller_epoll.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/hasaki/poller_epoll.cpp > CMakeFiles/hasaki.dir/poller_epoll.i
+
+CMakeFiles/hasaki.dir/poller_epoll.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hasaki.dir/poller_epoll.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/hasaki/poller_epoll.cpp -o CMakeFiles/hasaki.dir/poller_epoll.s
+
+CMakeFiles/hasaki.dir/poller_select.o: CMakeFiles/hasaki.dir/flags.make
+CMakeFiles/hasaki.dir/poller_select.o: ../poller_select.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/hasaki.dir/poller_select.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hasaki.dir/poller_select.o -c /Users/kuiper/MyCodes/hasaki/poller_select.cpp
+
+CMakeFiles/hasaki.dir/poller_select.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hasaki.dir/poller_select.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/kuiper/MyCodes/hasaki/poller_select.cpp > CMakeFiles/hasaki.dir/poller_select.i
+
+CMakeFiles/hasaki.dir/poller_select.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hasaki.dir/poller_select.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/kuiper/MyCodes/hasaki/poller_select.cpp -o CMakeFiles/hasaki.dir/poller_select.s
+
 CMakeFiles/hasaki.dir/socket_channel.o: CMakeFiles/hasaki.dir/flags.make
 CMakeFiles/hasaki.dir/socket_channel.o: ../socket_channel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/hasaki.dir/socket_channel.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/hasaki.dir/socket_channel.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hasaki.dir/socket_channel.o -c /Users/kuiper/MyCodes/hasaki/socket_channel.cpp
 
 CMakeFiles/hasaki.dir/socket_channel.i: cmake_force
@@ -182,7 +208,7 @@ CMakeFiles/hasaki.dir/socket_channel.s: cmake_force
 
 CMakeFiles/hasaki.dir/timestamp.o: CMakeFiles/hasaki.dir/flags.make
 CMakeFiles/hasaki.dir/timestamp.o: ../timestamp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/hasaki.dir/timestamp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/hasaki.dir/timestamp.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hasaki.dir/timestamp.o -c /Users/kuiper/MyCodes/hasaki/timestamp.cpp
 
 CMakeFiles/hasaki.dir/timestamp.i: cmake_force
@@ -202,6 +228,8 @@ hasaki_OBJECTS = \
 "CMakeFiles/hasaki.dir/inet_address.o" \
 "CMakeFiles/hasaki.dir/main.o" \
 "CMakeFiles/hasaki.dir/poller.o" \
+"CMakeFiles/hasaki.dir/poller_epoll.o" \
+"CMakeFiles/hasaki.dir/poller_select.o" \
 "CMakeFiles/hasaki.dir/socket_channel.o" \
 "CMakeFiles/hasaki.dir/timestamp.o"
 
@@ -215,11 +243,13 @@ hasaki_EXTERNAL_OBJECTS =
 ../lib/libhasaki.dylib: CMakeFiles/hasaki.dir/inet_address.o
 ../lib/libhasaki.dylib: CMakeFiles/hasaki.dir/main.o
 ../lib/libhasaki.dylib: CMakeFiles/hasaki.dir/poller.o
+../lib/libhasaki.dylib: CMakeFiles/hasaki.dir/poller_epoll.o
+../lib/libhasaki.dylib: CMakeFiles/hasaki.dir/poller_select.o
 ../lib/libhasaki.dylib: CMakeFiles/hasaki.dir/socket_channel.o
 ../lib/libhasaki.dylib: CMakeFiles/hasaki.dir/timestamp.o
 ../lib/libhasaki.dylib: CMakeFiles/hasaki.dir/build.make
 ../lib/libhasaki.dylib: CMakeFiles/hasaki.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX shared library ../lib/libhasaki.dylib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kuiper/MyCodes/hasaki/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX shared library ../lib/libhasaki.dylib"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hasaki.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

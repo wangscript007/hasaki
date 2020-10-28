@@ -11,6 +11,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/kuiper/MyCodes/hasaki/inet_address.cpp" "/Users/kuiper/MyCodes/hasaki/build/CMakeFiles/hasaki.dir/inet_address.o"
   "/Users/kuiper/MyCodes/hasaki/main.cpp" "/Users/kuiper/MyCodes/hasaki/build/CMakeFiles/hasaki.dir/main.o"
   "/Users/kuiper/MyCodes/hasaki/poller.cpp" "/Users/kuiper/MyCodes/hasaki/build/CMakeFiles/hasaki.dir/poller.o"
+  "/Users/kuiper/MyCodes/hasaki/poller_epoll.cpp" "/Users/kuiper/MyCodes/hasaki/build/CMakeFiles/hasaki.dir/poller_epoll.o"
+  "/Users/kuiper/MyCodes/hasaki/poller_select.cpp" "/Users/kuiper/MyCodes/hasaki/build/CMakeFiles/hasaki.dir/poller_select.o"
   "/Users/kuiper/MyCodes/hasaki/socket_channel.cpp" "/Users/kuiper/MyCodes/hasaki/build/CMakeFiles/hasaki.dir/socket_channel.o"
   "/Users/kuiper/MyCodes/hasaki/timestamp.cpp" "/Users/kuiper/MyCodes/hasaki/build/CMakeFiles/hasaki.dir/timestamp.o"
   )

@@ -15,7 +15,7 @@ namespace net {
 class EpollPoller : public hasaki::net::Poller {
 public:
     // Create a EpollPollers with a owner eventloop.
-    EpollPoller(std::shared_ptr<hasaki::net::EventLoop> EventLoop);
+    EpollPoller(std::shared_ptr<hasaki::net::EventLoop> &eventLoop);
 
     // Destory the EpollPoller.
     ~EpollPoller() {

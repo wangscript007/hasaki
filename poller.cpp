@@ -4,6 +4,9 @@
 namespace hasaki {
 namespace net {
 
+Poller::Poller(std::shared_ptr<EventLoop> &ownerLoop) {
+}
+
 Poller::~Poller() {
 }
 
