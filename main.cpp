@@ -1,28 +1,24 @@
 #include <algorithm>
 #include <functional>
-
 #include <iostream>
 #include <memory>
 #include <set>
 #include <string>
+#include <typeinfo>
 #include <vector>
 
+#include "blocking_queue.h"
 #include "byte_buffer.h"
 #include "inet_address.h"
 #include "logger.h"
 #include "timestamp.h"
-#include <typeinfo>
 // clang++ main.cpp -std=c++11
 
 class A {
 public:
-    A() {
-        HASAKI_INFO("A() wall called...");
-    }
+    A() { HASAKI_INFO("A() wall called..."); }
 
-    A(const A &r) {
-        HASAKI_INFO("A(const A&) wall called...");
-    }
+    A(const A &r) { HASAKI_INFO("A(const A&) wall called..."); }
 
     A &operator=(const A &r) {
         HASAKI_INFO("A& operator=(const A &r) wall called...");
@@ -32,13 +28,9 @@ public:
 
 class B {
 public:
-    B() {
-        HASAKI_INFO("B() wall called...");
-    }
+    B() { HASAKI_INFO("B() wall called..."); }
 
-    B(const B &r) : a__(r.a__) {
-        HASAKI_INFO("B(const B&) wall called...");
-    }
+    B(const B &r) : a__(r.a__) { HASAKI_INFO("B(const B&) wall called..."); }
 
     // B &operator=(const B &r) {
     //     HASAKI_INFO("B& operator=(const B&) wall called...");
@@ -62,7 +54,8 @@ public:
 };
 
 // ====================================================================================================
-template <typename _Tp> class DynamicArray {
+template <typename _Tp>
+class DynamicArray {
 public:
     DynamicArray() {
         this->data__ = new _Tp[16];
@@ -174,5 +167,14 @@ int main(int argc, char **args) {
 
     std::unique_ptr<int> sp(new int);
     std::unique_ptr<int> sp2(std::move(sp));
+
+    hasaki::base::BlockingQueue<int> queue;
+    // queue.Put(123);
+    int aaa = -1;
+    if (queue.Take(&aaa, std::chrono::seconds(3))) {
+        HASAKI_INFO("take, aaaa = {}", aaa);
+    } else {
+        HASAKI_WARN("take timeout and failed, aaaa = {}", aaa);
+    }
     return 0;
 }

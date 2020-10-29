@@ -41,6 +41,17 @@ public:
     // a element was added to the queue by a producer thread.
     Tp Take();
 
+    // Take a element in the given timeout.
+    // It will returns true if the a element was success taken in the given
+    // timeout and filled to the given pointer `Tp*`, or else return false.
+    // you should use it like:
+    // User user;
+    // if(queue.Take(&user, std::chrono::milliseconds(100))) {
+    //     // user is valid.
+    // }
+    template <typename _Rep, typename _Period>
+    bool Take(Tp *pt, std::chrono::duration<_Rep, _Period> timeout);
+
 private:
     std::queue<Tp, std::deque<Tp, Alloc> /*FOR CXX03 ERROR*/> queue__;
     std::mutex mtx__;
@@ -85,6 +96,25 @@ inline Tp BlockingQueue<Tp, Alloc>::Take() {
     queue__.pop();
     notFull__.notify_one();
     return std::move(t);
+}
+
+template <typename Tp, typename Alloc>
+template <typename _Rep, typename _Period>
+inline bool BlockingQueue<Tp, Alloc>::Take(
+    Tp *pt, std::chrono::duration<_Rep, _Period> timeout) {
+    if (pt == nullptr) {
+        return false;
+    }
+    std::unique_lock<std::mutex> lock(mtx__);
+    if (queue__.empty()) {
+        notEmpty__.wait_for(lock, timeout);
+        if (queue__.empty()) {
+            return false;
+        }
+    }
+    *pt = queue__.front();
+    queue__.pop();
+    return true;
 }
 
 }  // namespace base

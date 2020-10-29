@@ -4,13 +4,16 @@
 #include <cstdio>
 #include <cstdlib>
 
-#define HASAKI_PANIC(...)                                                              \
-    do {                                                                               \
-        fprintf(stderr, __VAR_ARGS__);                                                 \
-        abort();                                                                       \
+#define HASAKI_PANIC(...)              \
+    do {                               \
+        fprintf(stderr, __VAR_ARGS__); \
+        abort();                       \
     } while (0)
 
 #define hasaki_nop() asm volatile("nop");
+
+#define likely(x) __builtin_expect(!!(x), 1)
+#define unlikely(x) __builtin_expect(!!(x), 0)
 
 #ifdef HASAKI_NO_EXCEPTIONS
 #define HASAKI_TRY if (true)
