@@ -65,7 +65,8 @@
         "__tree": "cpp",
         "map": "cpp",
         "set": "cpp",
-        "C_Cpp.default.cppStandard": "c++11"
+        "C_Cpp.default.cppStandard": "c++11",
+        "deque": "cpp"
     },
     "editor.formatOnSave": true,
     "clang-format.executable": "/usr/local/Cellar/clang-format/10.0.1/bin/clang-format"
