@@ -1,10 +1,14 @@
 #ifndef __HASAKI_POLLER_EPOLL_H__
 #define __HASAKI_POLLER_EPOLL_H__
 
-#include "poller.h"
 #include <fcntl.h>
-#include <memory>
+#include <sys/epoll.h>
 #include <unistd.h>
+
+#include <memory>
+#include <vector>
+
+#include "poller.h"
 
 namespace hasaki {
 namespace net {
@@ -18,7 +22,7 @@ public:
     EpollPoller(std::shared_ptr<hasaki::net::EventLoop> &eventLoop);
 
     // Destory the EpollPoller.
-    ~EpollPoller() {
+    ~EpollPoller() override {
         if (epfd__ >= 0)
             ::close(epfd__);
     }
@@ -32,9 +36,17 @@ public:
         int timeoutMs) override;
 
 private:
+    void FillActiveChannels(int numActives,
+                            std::vector<hasaki::net::SocketChannel *> *activeChannels);
+
+    // ADD/DEL/MOD the interest events in fd.
+    void DoEpollCtl(int cntl, hasaki::net::SocketChannel *channel);
+
     int epfd__;
+    std::vector<struct epoll_event> epollEvents__;
+    static const int INIT_EVENT_LIST_SIZE = 8;
 };
-} // namespace net
-} // namespace hasaki
+}  // namespace net
+}  // namespace hasaki
 
 #endif

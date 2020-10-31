@@ -1,6 +1,8 @@
 #ifndef __HASAKI_GLOBAL_H__
 #define __HASAKI_GLOBAL_H__
 
+#include <stdarg.h>
+
 #include <cstdio>
 #include <cstdlib>
 
