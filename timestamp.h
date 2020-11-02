@@ -16,58 +16,102 @@ namespace base {
 
 class Timestamp {
 public:
-    //
-    //
+    /// <summary>
+    /// Construct a new Timestamp with a invalid zero value for internel filed `microsecondsSinceEpoch`.
+    /// </summary>
+    /// <returns></returns>
     Timestamp() : microsecondSinceEpoch__(0) {
     }
 
-    //
-    //
+    /// <summary>
+    /// Constuct a new Timestamp with a given value of `microsecondSinceEpoch`.
+    /// </summary>
+    /// <param name="microsecondSinceEpoch"></param>
+    /// <returns></returns>
     explicit Timestamp(int64_t microsecondSinceEpoch)
         : microsecondSinceEpoch__(microsecondSinceEpoch) {
     }
 
+    /// <summary>
+    /// operator==
+    /// </summary>
+    /// <param name="rhs"></param>
+    /// <returns></returns>
     bool operator==(const Timestamp &rhs) {
         return this->microsecondSinceEpoch__ == rhs.microsecondSinceEpoch__;
     }
 
+    /// <summary>
+    /// operator!=
+    /// </summary>
+    /// <param name="rhs"></param>
+    /// <returns></returns>
     bool operator!=(const Timestamp &rhs) {
         return this->microsecondSinceEpoch__ != rhs.microsecondSinceEpoch__;
     }
 
+    /// <summary>
+    /// operator<=
+    /// </summary>
+    /// <param name="rhs"></param>
+    /// <returns></returns>
     bool operator<=(const Timestamp &rhs) {
         return this->microsecondSinceEpoch__ <= rhs.microsecondSinceEpoch__;
     }
 
+    /// <summary>
+    /// operator<
+    /// </summary>
+    /// <param name="rhs"></param>
+    /// <returns></returns>
     bool operator<(const Timestamp &rhs) {
         return this->microsecondSinceEpoch__ < rhs.microsecondSinceEpoch__;
     }
 
+    /// <summary>
+    /// operator>
+    /// </summary>
+    /// <param name="rhs"></param>
+    /// <returns></returns>
     bool operator>(const Timestamp &rhs) {
         return this->microsecondSinceEpoch__ > rhs.microsecondSinceEpoch__;
     }
 
+    /// <summary>
+    /// operator>=
+    /// </summary>
+    /// <param name="rhs"></param>
+    /// <returns></returns>
     bool operator>=(const Timestamp &rhs) {
         return this->microsecondSinceEpoch__ >= rhs.microsecondSinceEpoch__;
     }
 
-    //
-    //
+    /// <summary>
+    ///  Convert self to a readable string.
+    /// </summary>
+    /// <returns></returns>
     std::string ToString() const;
 
-    //
-    //
+    /// <summary>
+    /// Get the microseconds since epoch.
+    /// </summary>
+    /// <returns></returns>
     int64_t GetMicrosecondSinceEpoch() const {
         return this->microsecondSinceEpoch__;
     }
 
-    // Is current timestamp object is a valid timestamp holder.
+    /// <summary>
+    /// Predicate the timestamp if a valid value.
+    /// </summary>
+    /// <returns></returns>
     bool IsValid() const {
         return this->microsecondSinceEpoch__ > 0;
     }
 
-    // Get a Timestamp presents now.
-    // Microseconds from 1970
+    /// <summary>
+    /// Get a Timestamp presents now.
+    /// </summary>
+    /// <returns> Microseconds from 1970</returns>
     static Timestamp Now();
 
 private:

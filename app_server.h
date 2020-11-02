@@ -4,6 +4,9 @@
 namespace hasaki {
 namespace net {
 
+/// <summary>
+/// 
+/// </summary>
 class AppServer {
 public:
     AppServer() = default;
