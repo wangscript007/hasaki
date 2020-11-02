@@ -13,42 +13,70 @@ namespace base {
 template <typename Tp, typename Alloc = std::allocator<Tp> /*FOR CXX03 ERROR*/>
 class BlockingQueue {
 public:
-    // Construct a BlockingQueue with a default capacity.
-    // Default capacity is `std::numeric_limits<int>::max()`
-    // You'd better to construct a blocking queue with a suitable capacity.
+    /// <summary>
+    /// Construct a BlockingQueue with a default capacity.
+    /// Default capacity is `std::numeric_limits<int>::max()`
+    ///  You'd better to construct a blocking queue with a suitable capacity.
+    /// </summary>
+    /// <returns></returns>
     BlockingQueue() : cap__(std::numeric_limits<int>::max()) {}
 
-    // Construct a BlockingQueue with a given capactity.
+    /// <summary>
+    ///  Construct a BlockingQueue with a given capactity.
+    /// </summary>
+    /// <param name="cap">the capactity of this blocking queue.</param>
+    /// <returns></returns>
     explicit BlockingQueue(int cap) : cap__(cap) {}
 
-    // Get the capactity of this queue.
+    /// <summary>
+    ///  Get the capactity of this queue.
+    /// </summary>
+    /// <returns>the capactity.</returns>
     std::size_t Capacity() const { return cap__; }
 
-    // Get the current size of this queue.
+    /// <summary>
+    ///  Get the current size of this queue.
+    /// </summary>
+    /// <returns>current size.</returns>
     std::size_t Size();
 
-    // Put a element to the queue.
-    // The put thread will be blocked if the queue has no capacity util
-    // a element taken by a consumer thread.
+    /// <summary>
+    /// Put a element to the queue.
+    /// The put thread will be blocked if the queue has no capacity util
+    /// a element taken by a consumer thread.
+    /// </summary>
+    /// <param name="t"></param>
     void Put(const Tp &t);
 
-    // It's behavior likes Put(const Tp &t).
-    // It's just used by cpp11.
+    /// <summary>
+    ///  It's behavior likes Put(const Tp &t).
+    /// </summary>
+    /// <param name="t"></param>
     void Put(Tp &&t);
 
-    // Take a element from the queue.
-    // The take thread will be blocked if the queue has no element util
-    // a element was added to the queue by a producer thread.
+    /// <summary>
+    /// Take a element from the queue.
+    /// The take thread will be blocked if the queue has no element util
+    /// a element was added to the queue by a producer thread.
+    /// </summary>
+    /// <returns></returns>
     Tp Take();
 
-    // Take a element in the given timeout.
-    // It will returns true if the a element was success taken in the given
-    // timeout and filled to the given pointer `Tp*`, or else return false.
-    // you should use it like:
-    // User user;
-    // if(queue.Take(&user, std::chrono::milliseconds(100))) {
-    //     // user is valid.
-    // }
+    /// <summary>
+    /// Take a element in the given timeout.
+    /// It will returns true if the a element was success taken in the given
+    /// timeout and filled to the given pointer `Tp*`, or else return false.
+    /// you should use it like:
+    /// User user;
+    /// if(queue.Take(&user, std::chrono::milliseconds(100))) {
+    ///    // user is valid.
+    /// }
+    /// </summary>
+    /// <typeparam name="_Rep"></typeparam>
+    /// <typeparam name="_Period"></typeparam>
+    /// <param name="pt"></param>
+    /// <param name="timeout"></param>
+    /// <returns></returns>
     template <typename _Rep, typename _Period>
     bool Take(Tp *pt, std::chrono::duration<_Rep, _Period> timeout);
 

@@ -1,11 +1,17 @@
 #include "poller_select.h"
+#include "hasaki_core.h"
 
+#if (defined(OS_WINDOWS) && OS_WINDOWS)
+#include <WinSock2.h>
+#else
 #include <sys/select.h>
+#endif
 
 namespace hasaki {
 namespace net {
 
-void SelectPoller::UpdateChannel(hasaki::net::SocketChannel *channel) {
+void SelectPoller::UpdateChannel(hasaki::net::SocketChannel *channel) { 
+
 }
 
 void SelectPoller::RemoveChannel(hasaki::net::SocketChannel *channel) {

@@ -3,10 +3,11 @@
 
 namespace hasaki {
 namespace net {
+
 class AppServer {
 public:
-    AppServer();
-    ~AppServer();
+    AppServer() = default;
+    virtual ~AppServer() = default;
 };
 } // namespace net
 } // namespace hasaki

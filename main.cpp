@@ -176,5 +176,9 @@ int main(int argc, char **args) {
     } else {
         HASAKI_WARN("take timeout and failed, aaaa = {}", aaa);
     }
+
+    int a = 1;
+    int b = 2;
+    std::swap(a, b);
     return 0;
 }
