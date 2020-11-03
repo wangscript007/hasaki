@@ -2,6 +2,7 @@
 #define __HASAKI_BYTE_BUFFER_H__
 
 #include <vector>
+#include "noncopyable.h"
 
 namespace hasaki {
 namespace base {
@@ -14,7 +15,7 @@ namespace base {
 /// you'd better call the `ReadableBytes() `method first to ensure the safe, or else it will be panic
 /// if the ByteBuffer has no so many bytes to read.
 /// </summary>
-class ByteBuffer {
+class ByteBuffer : public hasaki::noncopyable {
 public:
     /// <summary>
     /// Construct a Bytebuffer and reset the readIndex and writeIndex starts from position 0.
