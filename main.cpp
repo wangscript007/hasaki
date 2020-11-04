@@ -3,6 +3,7 @@
 #include <iostream>
 #include <memory>
 #include <set>
+#include <sstream>
 #include <string>
 #include <typeinfo>
 #include <vector>
@@ -53,6 +54,23 @@ public:
     std::shared_ptr<User> faUser__;
 };
 
+void product_thr_entry(hasaki::base::BlockingQueue<std::string> &q__) {
+    std::stringstream ss;
+    ss << 1;
+    for (size_t i = 0; i < 50; i++) {
+        ss << i;
+        std::cout << "producer-thread: Put " << ss.str() << std::endl;
+        q__.Put(ss.str());
+        std::this_thread::sleep_for(std::chrono::microseconds(800));
+    }
+}
+
+void consumer_thr_entry(hasaki::base::BlockingQueue<std::string> &q__) {
+    for (;;) {
+        auto x = q__.Take();
+        std::cout << "consumer-thread: Take " << x << std::endl;
+    }
+}
 
 // ====================================================================================================
 
@@ -108,28 +126,11 @@ int main(int argc, char **args) {
     // std::cout << x(100, 2, 3, 4, 5) << std::endl;
 
     hasaki::base::BlockingQueue<std::string> bq_;
-    
-    std::thread producer(bq_);
-    std::thread consumer(bq_);
+
+    std::thread producer(product_thr_entry, std::ref(bq_));
+    std::thread consumer(consumer_thr_entry, std::ref(bq_));
 
     producer.join();
     consumer.join();
     return 0;
-}
-
-
-void product_thr_entry(hasaki::base::BlockingQueue<std::string> &q__) {
-    std::stringstream ss = "hello-";
-    for (size_t i = 0; i< 100; i++) {
-        ss << i;
-        q__.Put(ss.str());
-        std::this_thread::sleep_for(std::chrono::microseconds(800));
-    }
-}
-
-void consumer_thr_entry(hasaki::base::BlockingQueue<std::string> &q__) { 
-    for (;;) {
-        auto x = q__.Take();
-        std::cout << "consumer-thread: Take " << x << std::endl;
-    }
 }

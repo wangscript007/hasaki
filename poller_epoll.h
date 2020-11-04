@@ -1,6 +1,10 @@
 #ifndef __HASAKI_POLLER_EPOLL_H__
 #define __HASAKI_POLLER_EPOLL_H__
 
+#include "hasaki_core.h"
+
+#if defined(OS_LINUX) && (OS_LINUX)
+
 #include <fcntl.h>
 #include <sys/epoll.h>
 #include <unistd.h>
@@ -48,5 +52,7 @@ private:
 };
 }  // namespace net
 }  // namespace hasaki
+
+#endif
 
 #endif

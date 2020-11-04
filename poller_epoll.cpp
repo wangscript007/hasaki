@@ -8,6 +8,8 @@
 #include "logger.h"
 #include "socket_channel.h"
 
+#if defined(OS_LINUX) && (OS_LINUX)
+
 namespace hasaki {
 namespace net {
 
@@ -61,3 +63,5 @@ hasaki::base::Timestamp EpollPoller::Poll(
 
 }  // namespace net
 }  // namespace hasaki
+
+#endif

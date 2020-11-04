@@ -1,0 +1,57 @@
+[
+{
+  "directory": "/Users/kuiper/MyCodes/hasaki/build",
+  "command": "/usr/bin/clang++ -Dhasaki_EXPORTS -I/usr/local/include  -g -std=c++11 -Wc++11-extensions -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIC -o CMakeFiles/hasaki.dir/acceptor.o -c /Users/kuiper/MyCodes/hasaki/acceptor.cpp",
+  "file": "/Users/kuiper/MyCodes/hasaki/acceptor.cpp"
+},
+{
+  "directory": "/Users/kuiper/MyCodes/hasaki/build",
+  "command": "/usr/bin/clang++ -Dhasaki_EXPORTS -I/usr/local/include  -g -std=c++11 -Wc++11-extensions -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIC -o CMakeFiles/hasaki.dir/app_server.o -c /Users/kuiper/MyCodes/hasaki/app_server.cpp",
+  "file": "/Users/kuiper/MyCodes/hasaki/app_server.cpp"
+},
+{
+  "directory": "/Users/kuiper/MyCodes/hasaki/build",
+  "command": "/usr/bin/clang++ -Dhasaki_EXPORTS -I/usr/local/include  -g -std=c++11 -Wc++11-extensions -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIC -o CMakeFiles/hasaki.dir/byte_buffer.o -c /Users/kuiper/MyCodes/hasaki/byte_buffer.cpp",
+  "file": "/Users/kuiper/MyCodes/hasaki/byte_buffer.cpp"
+},
+{
+  "directory": "/Users/kuiper/MyCodes/hasaki/build",
+  "command": "/usr/bin/clang++ -Dhasaki_EXPORTS -I/usr/local/include  -g -std=c++11 -Wc++11-extensions -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIC -o CMakeFiles/hasaki.dir/event_loop.o -c /Users/kuiper/MyCodes/hasaki/event_loop.cpp",
+  "file": "/Users/kuiper/MyCodes/hasaki/event_loop.cpp"
+},
+{
+  "directory": "/Users/kuiper/MyCodes/hasaki/build",
+  "command": "/usr/bin/clang++ -Dhasaki_EXPORTS -I/usr/local/include  -g -std=c++11 -Wc++11-extensions -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIC -o CMakeFiles/hasaki.dir/inet_address.o -c /Users/kuiper/MyCodes/hasaki/inet_address.cpp",
+  "file": "/Users/kuiper/MyCodes/hasaki/inet_address.cpp"
+},
+{
+  "directory": "/Users/kuiper/MyCodes/hasaki/build",
+  "command": "/usr/bin/clang++ -Dhasaki_EXPORTS -I/usr/local/include  -g -std=c++11 -Wc++11-extensions -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIC -o CMakeFiles/hasaki.dir/main.o -c /Users/kuiper/MyCodes/hasaki/main.cpp",
+  "file": "/Users/kuiper/MyCodes/hasaki/main.cpp"
+},
+{
+  "directory": "/Users/kuiper/MyCodes/hasaki/build",
+  "command": "/usr/bin/clang++ -Dhasaki_EXPORTS -I/usr/local/include  -g -std=c++11 -Wc++11-extensions -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIC -o CMakeFiles/hasaki.dir/poller.o -c /Users/kuiper/MyCodes/hasaki/poller.cpp",
+  "file": "/Users/kuiper/MyCodes/hasaki/poller.cpp"
+},
+{
+  "directory": "/Users/kuiper/MyCodes/hasaki/build",
+  "command": "/usr/bin/clang++ -Dhasaki_EXPORTS -I/usr/local/include  -g -std=c++11 -Wc++11-extensions -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIC -o CMakeFiles/hasaki.dir/poller_epoll.o -c /Users/kuiper/MyCodes/hasaki/poller_epoll.cpp",
+  "file": "/Users/kuiper/MyCodes/hasaki/poller_epoll.cpp"
+},
+{
+  "directory": "/Users/kuiper/MyCodes/hasaki/build",
+  "command": "/usr/bin/clang++ -Dhasaki_EXPORTS -I/usr/local/include  -g -std=c++11 -Wc++11-extensions -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIC -o CMakeFiles/hasaki.dir/poller_select.o -c /Users/kuiper/MyCodes/hasaki/poller_select.cpp",
+  "file": "/Users/kuiper/MyCodes/hasaki/poller_select.cpp"
+},
+{
+  "directory": "/Users/kuiper/MyCodes/hasaki/build",
+  "command": "/usr/bin/clang++ -Dhasaki_EXPORTS -I/usr/local/include  -g -std=c++11 -Wc++11-extensions -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIC -o CMakeFiles/hasaki.dir/socket_channel.o -c /Users/kuiper/MyCodes/hasaki/socket_channel.cpp",
+  "file": "/Users/kuiper/MyCodes/hasaki/socket_channel.cpp"
+},
+{
+  "directory": "/Users/kuiper/MyCodes/hasaki/build",
+  "command": "/usr/bin/clang++ -Dhasaki_EXPORTS -I/usr/local/include  -g -std=c++11 -Wc++11-extensions -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -fPIC -o CMakeFiles/hasaki.dir/timestamp.o -c /Users/kuiper/MyCodes/hasaki/timestamp.cpp",
+  "file": "/Users/kuiper/MyCodes/hasaki/timestamp.cpp"
+}
+]
