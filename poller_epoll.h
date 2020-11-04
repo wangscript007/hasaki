@@ -40,7 +40,7 @@ private:
                             std::vector<hasaki::net::SocketChannel *> *activeChannels);
 
     // ADD/DEL/MOD the interest events in fd.
-    void DoEpollCtl(int cntl, hasaki::net::SocketChannel *channel);
+    void DoEpollCtl(int ctl, hasaki::net::SocketChannel *channel);
 
     int epfd__;
     std::vector<struct epoll_event> epollEvents__;

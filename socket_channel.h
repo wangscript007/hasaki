@@ -7,7 +7,6 @@
 
 #include <functional>
 #include <memory>
-#include <sys/poll.h>
 #include <vector>
 
 namespace hasaki {
@@ -26,9 +25,9 @@ const int WRITE_EVENT = 2;
 // SocketChannel is a wrapper for client fd and it's events.
 class SocketChannel : public hasaki::noncopyable {
 public:
-    using SocketChannelList = std::vector<SocketChannel>;
-    using EventCallbackFn = std::function<void()>;
-    using ReadEventCallbackFn = std::function<void(hasaki::base::Timestamp)>;
+    using SocketChannelList       = std::vector<SocketChannel>;
+    using EventCallbackFn         = std::function<void()>;
+    using ReadEventCallbackFn     = std::function<void(hasaki::base::Timestamp)>;
 
 public:
     SocketChannel(std::shared_ptr<hasaki::net::EventLoop> &eventloop, int fd);
@@ -75,12 +74,10 @@ public:
     }
 
     bool IsInterestWithRead() const {
-        // CHNAGE LINE
         return interestEvents__ & READ_EVENT;
     }
 
     bool IsInterestWithWrite() const {
-        // CHNAGE LINE
         return interestEvents__ & WRITE_EVENT;
     }
 

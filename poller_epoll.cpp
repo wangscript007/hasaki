@@ -60,5 +60,4 @@ hasaki::base::Timestamp EpollPoller::Poll(
     std::vector<hasaki::net::SocketChannel *> *activeChannels, int timeoutMs) {}
 
 }  // namespace net
-
 }  // namespace hasaki
