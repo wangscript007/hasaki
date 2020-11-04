@@ -1,5 +1,13 @@
 #include "socket.h"
 
+#ifdef OS_WINDOWS
+#include <winerror.h>
+#include <WS2tcpip.h>
+#else
+#include <sys/types.h>
+#include <sys/socket.h>
+#endif
+
 namespace hasaki {
 namespace net {
 
@@ -25,7 +33,13 @@ void Socket::SetNonblocking() {
 }
 
  void Socket::SetTcpNoDelay(bool on) {
+#ifdef OS_WINDOWS
+     BOOL tcpNoDelay = TRUE;
+     ::setsockopt(sockfd__, SOL_SOCKET, TCP_NODELAY, (const char *)&tcpNoDelay,
+                sizeof(BOOL));
+#else
 
+#endif
  }
 
 void Socket::SetReuseAddr(bool on) {

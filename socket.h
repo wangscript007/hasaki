@@ -3,10 +3,9 @@
 
 #include "noncopyable"
 #include "hasaki_core.h"
-#if defined(OS_WINDOWS) && OS_WINDOWS
+
+#if defined(OS_WINDOWS)
 #include <WinSock2.h>
-#include <winerror.h>
-#include <WS2tcpip.h>
 typedef SOCKET fd_t;
 #else
 typedef int fd_t;
