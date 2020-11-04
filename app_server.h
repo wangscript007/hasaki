@@ -7,7 +7,7 @@ namespace hasaki {
 namespace net {
 
 /// <summary>
-/// 
+/// AppSever
 /// </summary>
 class AppServer : public std::enable_shared_from_this<AppServer> {
 public:

@@ -53,51 +53,6 @@ public:
     std::shared_ptr<User> faUser__;
 };
 
-// ====================================================================================================
-template <typename _Tp>
-class DynamicArray {
-public:
-    DynamicArray() {
-        this->data__ = new _Tp[16];
-        this->size__ = 0;
-        this->cap__ = 16;
-    }
-    DynamicArray(const DynamicArray<_Tp> &rhs) {
-        std::cout << "DynamicArray(const DynamicArray<_Tp> &rhs) ..." << std::endl;
-        this->data__ = new _Tp[rhs.cap__];
-        this->size__ = rhs.size__;
-        this->cap__ = rhs.cap__;
-    }
-    DynamicArray(DynamicArray<_Tp> &&rhs) {
-        std::cout << "DynamicArray(DynamicArray<_Tp> &&rhs) {" << std::endl;
-        this->data__ = rhs.data__;
-        this->size__ = rhs.size__;
-        this->cap__ = rhs.cap__;
-        rhs.data__ = nullptr;
-        rhs.size__ = 0;
-        rhs.cap__ = 0;
-
-        // std::cout << typeid(rhs).name() << std::endl;
-        test(std::move(rhs));
-    }
-
-    void test(DynamicArray<_Tp> &&) {
-        std::cout << "test(DynamicArray<_Tp> &&)" << std::endl;
-    }
-
-    // void test(DynamicArray<_Tp> t) {
-    //     std::cout << "test(DynamicArray<_Tp> t) " << std::endl;
-    // }
-
-    // void test(DynamicArray<_Tp> &t) {
-    //     std::cout << "test(DynamicArray<_Tp> &t)" << std::endl;
-    // }
-
-private:
-    _Tp *data__;
-    std::size_t size__;
-    std::size_t cap__;
-};
 
 // ====================================================================================================
 
@@ -152,33 +107,29 @@ int main(int argc, char **args) {
     // auto x = std::bind(less, 1, 1, 2);
     // std::cout << x(100, 2, 3, 4, 5) << std::endl;
 
-    std::vector<int> v;
-    int a = 10;
-    v.push_back(std::move(a));
+    hasaki::base::BlockingQueue<std::string> bq_;
+    
+    std::thread producer(bq_);
+    std::thread consumer(bq_);
 
-    //
-    DynamicArray<int> v1;
-    DynamicArray<int> v2 = std::move(v1);
-
-    // auto b = std::move(a);
-
-    // std::set<int> set;
-    // set.insert(std::move(a));
-
-    std::unique_ptr<int> sp(new int);
-    std::unique_ptr<int> sp2(std::move(sp));
-
-    hasaki::base::BlockingQueue<int> queue;
-    // queue.Put(123);
-    int aaa = -1;
-    if (queue.Take(&aaa, std::chrono::seconds(3))) {
-        HASAKI_INFO("take, aaaa = {}", aaa);
-    } else {
-        HASAKI_WARN("take timeout and failed, aaaa = {}", aaa);
-    }
-
-    int a = 1;
-    int b = 2;
-    std::swap(a, b);
+    producer.join();
+    consumer.join();
     return 0;
+}
+
+
+void product_thr_entry(hasaki::base::BlockingQueue<std::string> &q__) {
+    std::stringstream ss = "hello-";
+    for (size_t i = 0; i< 100; i++) {
+        ss << i;
+        q__.Put(ss.str());
+        std::this_thread::sleep_for(std::chrono::microseconds(800));
+    }
+}
+
+void consumer_thr_entry(hasaki::base::BlockingQueue<std::string> &q__) { 
+    for (;;) {
+        auto x = q__.Take();
+        std::cout << "consumer-thread: Take " << x << std::endl;
+    }
 }

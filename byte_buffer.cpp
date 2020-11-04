@@ -138,5 +138,4 @@ std::size_t ByteBuffer::SizeOfBuffer() const {
 }
 
 } // namespace base
-
 } // namespace hasaki
