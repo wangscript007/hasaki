@@ -52,14 +52,13 @@ public:
     void SetTcpNoDelay(bool on);
 
     /// <summary>
-    /// SetReuseAddr has difference means in difference operation system.
-    /// In unix-like os such as linux or macos, setReuseAddr was a posix standard.
+    /// SO_REUSEADDR选项在Linux和Windows上的表现不一样.
     /// </summary>
     /// <param name="on"></param>
     void SetReuseAddr(bool on);
 
     /// <summary>
-    /// 
+    /// 只在Linux系统上生效,Windows上无SO_REUSEPORT选项.
     /// </summary>
     /// <param name="on"></param>
     void SetReusePort(bool on);

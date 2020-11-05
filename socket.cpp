@@ -43,10 +43,20 @@ void Socket::SetNonblocking() {
  }
 
 void Socket::SetReuseAddr(bool on) {
-}
+// Windows虽然支持SO_REUSEADDR 但是它和Linux的SO_REUSEADDR意思不同
+// 这里只支持对Linux或者MacOSX设置, Windows上DO NOTHING.
+#if defined(SO_REUSEADDR) && !defined(OS_WINDWOS)
+
+#endif
+ }
 
 void Socket::SetReusePort(bool on) {
-}
+// Windows不支持SO_REUSEPORT
+#if defined(SO_REUSEPORT) && !defined(OS_WINDOWS)
+    int val = on ? 1 : 0;
+    setsockopt(sockfd__, SOL_SOCKET, SO_REUSEPORT, (void *)&val, (socklen_t)sizeof(val));
+#endif
+ }
 
 void Socket::SetKeepAlive(bool on) {
 }
